@@ -110,17 +110,58 @@ static NSParagraphStyle *paragraphStyle;
     return self;
 }
 
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    
+    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
+    CGSize mediaImageSize = CGSizeMake(CGRectGetWidth(self.bounds), self.mediaImageView.image.size.height / self.mediaImageView.image.size.width * CGRectGetWidth(self.bounds));
+    CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
+    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
+    
+    self.imageHeightConstraint.constant = mediaImageSize.height;
+    self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height == 0 ? 0 :usernameLabelSize.height + 20;
+    self.commentLabelHeightConstraint.constant = commentLabelSize.height == 0 ? 0 :commentLabelSize.height + 20;
+    
+    // Hide the line between cells - http://johnszumski.com/blog/hiding-table-separators-on-a-cell-by-cell-basis
+    self.separatorInset  = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
+    
+    // Hide the line between cells
+    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
+}
+
++ (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
+    // Make a cell
+    MediaTableViewCell *layoutCell = [[MediaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
+    
+    layoutCell.mediaItem = mediaItem;
+    
+    layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
+    
+    [layoutCell setNeedsLayout];
+    [layoutCell layoutIfNeeded];
+    
+    // Get the actual height required for the cell
+    return CGRectGetMaxY(layoutCell.commentLabel.frame);
+}
+
+- (void) setMediaItem:(Media *)mediaItem {
+    _mediaItem = mediaItem;
+    self.mediaImageView.image = _mediaItem.image;
+    self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
+    self.commentLabel.attributedText = [self commentString];
+    self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    
+}
+
 - (NSAttributedString *) usernameAndCaptionString {
-    // #1
     CGFloat usernameFontSize = 15;
     
-    // #2 - Make a string that says "username caption"
-    NSString *baseString = [NSString stringWithFormat:@"%@ %@", self.mediaItem.user.userName, self.mediaItem.caption];
+    // Make a string that says "username caption text"
+    NSString *baseString = [NSString stringWithFormat:@"%@ %@", self.mediaItem.user.userName, self.mediaItem.user.fullName];
     
-    // #3 - Make an attributed string, with the "username" bold
+    // Make an attributed string, with the "username" bold
     NSMutableAttributedString *mutableUsernameAndCaptionString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : [lightFont fontWithSize:usernameFontSize], NSParagraphStyleAttributeName : paragraphStyle}];
     
-    // #4
     NSRange usernameRange = [baseString rangeOfString:self.mediaItem.user.userName];
     [mutableUsernameAndCaptionString addAttribute:NSFontAttributeName value:[boldFont fontWithSize:usernameFontSize] range:usernameRange];
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
@@ -139,7 +180,7 @@ static NSParagraphStyle *paragraphStyle;
     
         NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle, NSKernAttributeName : @(-1.3)}];
     
-            NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
+        NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
             [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
             [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
     
@@ -149,58 +190,7 @@ static NSParagraphStyle *paragraphStyle;
     return commentString;
 }
 
-// Implementing layoutSubviews - Method that calculates the size of attributed string
-//
-//- (CGSize) sizeOfString:(NSAttributedString *)string {
-//    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.contentView.bounds) - 40, 0.0);
-//    CGRect sizeRect = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-//    sizeRect.size.height += 20;
-//    sizeRect = CGRectIntegral(sizeRect);
-//    return sizeRect.size;
-//}
-
-// Layout of the views
-
-- (void) layoutSubviews {
-    [super layoutSubviews];
-    
-    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
-    CGSize mediaImageSize = CGSizeMake(CGRectGetWidth(self.bounds), self.mediaImageView.image.size.height / self.mediaImageView.image.size.width * CGRectGetWidth(self.bounds));
-    CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
-    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
-    
-    self.imageHeightConstraint.constant = mediaImageSize.height;
-    self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
-    self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
-    
-    // Hide the line between cells - http://johnszumski.com/blog/hiding-table-separators-on-a-cell-by-cell-basis
-    self.separatorInset  = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
-    
-    // Hide the line between cells
-    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
+- (void) setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
 }
-
-- (void) setMediaItem:(Media *)mediaItem {
-    _mediaItem = mediaItem;
-    self.mediaImageView.image = _mediaItem.image;
-    self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
-    self.commentLabel.attributedText = [self commentString];
-}
-
-+ (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
-    // Make a cell
-    MediaTableViewCell *layoutCell = [[MediaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
-    
-    layoutCell.mediaItem = mediaItem;
-    
-    layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
-    
-    [layoutCell setNeedsLayout];
-    [layoutCell layoutIfNeeded];
-    
-    // Get the actual height required for the cell
-    return CGRectGetMaxY(layoutCell.commentLabel.frame);
-}
-
-
 @end
