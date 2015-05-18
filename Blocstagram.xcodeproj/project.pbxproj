@@ -27,6 +27,7 @@
 		3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D7E1B01B2AE00C181DE /* Media.m */; };
 		3DA83D821B01B36B00C181DE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D811B01B36B00C181DE /* Comment.m */; };
 		3DA83D851B01B3E500C181DE /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D841B01B3E500C181DE /* DataSource.m */; };
+		3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		3DA83D811B01B36B00C181DE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		3DA83D831B01B3E500C181DE /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		3DA83D841B01B3E500C181DE /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 		3DA83D381B0196A300C181DE /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */,
+				3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */,
 				3DA83D3D1B0196A300C181DE /* AppDelegate.h */,
 				3DA83D3E1B0196A300C181DE /* AppDelegate.m */,
 				3DA83D771B019A5500C181DE /* ImagesTableTableViewController.h */,
@@ -285,6 +290,7 @@
 			files = (
 				3DA83D7C1B01AFC600C181DE /* User.m in Sources */,
 				3DA83D821B01B36B00C181DE /* Comment.m in Sources */,
+				3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */,
 				3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */,
 				3DA83D791B019A5500C181DE /* ImagesTableTableViewController.m in Sources */,
 				3DA83D851B01B3E500C181DE /* DataSource.m in Sources */,
@@ -474,6 +480,7 @@
 				3DA83D5B1B0196A400C181DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA83D5C1B0196A400C181DE /* Build configuration list for PBXNativeTarget "BlocstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +489,7 @@
 				3DA83D5E1B0196A400C181DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
