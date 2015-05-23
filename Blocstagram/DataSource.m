@@ -110,9 +110,9 @@
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
 // do the network request in the background, so the UI doesn't lock up
 
-            NSMutableString *urlString = [NSMutableString stringWithFormat:@"https://api.instagram.com/v1/humansofny/media/feed?access_token=%@", self.accessToken];
+            NSMutableString *urlString = [NSMutableString stringWithFormat:@"https://api.instagram.com/v1/users/self/feed?access_token=%@", self.accessToken];
                 
-//MODIFIED API ADDRESS TRYING TO GET HUMANS OF NY DATA https://api.instagram.com/v1/users/self/feed?access_token=%@
+//MODIFIED API ADDRESS TRYING TO GET HUMANS OF NY DATAhttps://api.instagram.com/v1/humansofny/media/feed?access_token=%@ https://api.instagram.com/v1/users/self/feed?access_token=%@
                 
                 https://api.instagram.com/v1/starbucks/nofilter/media/recent?client_id=eeb5d2b7dea143d088e51a47b7035aee
             for (NSString *parameterName in parameters) {

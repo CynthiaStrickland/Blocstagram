@@ -39,7 +39,6 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     }
 }
 
-
 - (NSString *)redirectURI {
     return @"http://google.com";
 }
@@ -55,8 +54,6 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     self.webView = webView;
     
     self.title = NSLocalizedString(@"Login", @"Login");
-    
-    // *****PROVIDING Instagram Client ID stored in DataSource *******
     
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [DataSource instagramClientID], [self redirectURI]];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -90,16 +87,5 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     
     return YES;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
