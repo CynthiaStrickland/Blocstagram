@@ -73,8 +73,6 @@
     [self infiniteScrollIfNecessary];
 }
 
-
-
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
         if (object == [DataSource sharedInstance] && [keyPath isEqualToString:@"mediaItems"]) {
             // We know mediaItems changed.  Let's see what kind of change it is.
