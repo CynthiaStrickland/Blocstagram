@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface User : NSObject
+
+- (instancetype) initWithDictionary:(NSDictionary *)userDictionary;
 
 @property (nonatomic, strong) NSString *idNumber;
 @property (nonatomic, strong) NSString *userName;
