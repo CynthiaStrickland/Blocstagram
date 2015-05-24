@@ -22,12 +22,27 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-        //        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ImagesTableTableViewController alloc] init]];
  
     [DataSource sharedInstance]; // create the data source (so it can receive the access token notification)
 
     UINavigationController *navVC = [[UINavigationController alloc] init];
+        
+    if (![DataSource sharedInstance].accessToken) {
+        
+            // these lines are unchanged; just indent them.
+        
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        [navVC setViewControllers:@[loginVC] animated:YES];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:LoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            ImagesTableTableViewController *imagesVC = [[ImagesTableTableViewController alloc] init];
+                [navVC setViewControllers:@[imagesVC] animated:YES];
+            }];
+    } else {
+        ImagesTableTableViewController *imagesVC = [[ImagesTableTableViewController alloc] init];
+        [navVC setViewControllers:@[imagesVC] animated:YES];
+    }
+        
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     [navVC setViewControllers:@[loginVC] animated:YES];
 

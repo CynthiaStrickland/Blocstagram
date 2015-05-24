@@ -11,6 +11,8 @@
 #import "Media.h"
 #import "Comment.h"
 #import "LoginViewController.h"
+#import <UICKeyChainStore.h>
+
 
 @interface DataSource () {
     NSMutableArray *_mediaItems;
@@ -88,7 +90,13 @@
     self = [super init];
     
     if (self) {
-        [self registerForAccessTokenNotification];
+        self.accessToken = [UICKeyChainStore stringForKey:@"access token"];
+
+        if (!self.accessToken) {
+            [self registerForAccessTokenNotification];
+        } else {
+            [self populateDataWithParameters:nil completionHandler:nil];
+        }
     }
     
     return self;
@@ -97,6 +105,7 @@
 - (void) registerForAccessTokenNotification {
     [[NSNotificationCenter defaultCenter] addObserverForName:LoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.accessToken = note.object;
+        [UICKeyChainStore setString:self.accessToken forKey:@"access token"];
         
         //HAVE A TOKEN; POPULATE THE INITIAL DATA
         [self populateDataWithParameters:nil completionHandler:nil];
