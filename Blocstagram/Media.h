@@ -10,7 +10,7 @@
 
 @class User;
 
-@interface Media : NSObject
+@interface Media : NSObject <NSCoding>
 
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 
