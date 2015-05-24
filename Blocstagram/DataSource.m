@@ -26,7 +26,7 @@
 @implementation DataSource
 
 + (NSString *) instagramClientID {
-    return @"eeb5d2b7dea143d088e51a47b7035aee";   // ********   DO I REALLY PUT MY CLIENT ID HERE ??? *******
+    return @"eeb5d2b7dea143d088e51a47b7035aee";  
 }
 
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
