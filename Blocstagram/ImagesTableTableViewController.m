@@ -7,15 +7,14 @@
 //
 
 #import "ImagesTableTableViewController.h"
+#import "MediaFullScreenViewController.h"
 #import "MediaTableViewCell.h"
 #import "DataSource.h"
 #import "Media.h"
 #import "User.h"
 #import "Comment.h"
 
-@interface ImagesTableTableViewController ()
-
-
+@interface ImagesTableTableViewController () <MediaTableViewCellDelegate>
 
 @end
 
@@ -123,6 +122,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+    
+    cell.delegate = self;
+    
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     
     return cell;
@@ -147,12 +149,27 @@
     }
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
+}
+
+#pragma mark - MediaTableViewCellDelegate
+
+- (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+    MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+
+    [self presentViewController:fullScreenVC animated:YES completion:nil];
+}
+
+
+
 //- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
 //    UIImage *image = item.image;
-//    
+//
 //    return 300 + (image.size.height / image.size.width * CGRectGetWidth(self.view.frame));
-//    
+//
 //}
 //
 //- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -163,9 +180,4 @@
 //        return 150;
 //    }
 //}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
-}
 @end
