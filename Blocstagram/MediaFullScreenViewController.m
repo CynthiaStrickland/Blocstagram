@@ -98,25 +98,6 @@
     self.imageView.frame = contentsFrame;
 }
 
-- (void) doubleTapFired:(UITapGestureRecognizer *)sender {
-    if (self.scrollView.zoomScale == self.scrollView.minimumZoomScale) {
-        // #8
-        CGPoint locationPoint = [sender locationInView:self.imageView];
-
-        CGSize scrollViewSize = self.scrollView.bounds.size;
-
-        CGFloat width = scrollViewSize.width / self.scrollView.maximumZoomScale;
-        CGFloat height = scrollViewSize.height / self.scrollView.maximumZoomScale;
-        CGFloat x = locationPoint.x - (width / 2);
-        CGFloat y = locationPoint.y - (height / 2);
-
-        [self.scrollView zoomToRect:CGRectMake(x, y, width, height) animated:YES];
-    } else {
-        // #9
-        [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
-    }
-}
-
 #pragma mark - UIScrollViewDelegate
 
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -133,9 +114,29 @@
     [self centerScrollView];
 }
 
+#pragma mark - Gesture Recognizers
+
 - (void) tapFired:(UITapGestureRecognizer *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) doubleTapFired:(UITapGestureRecognizer *)sender {
+    if (self.scrollView.zoomScale == self.scrollView.minimumZoomScale) {
+        // #8
+        CGPoint locationPoint = [sender locationInView:self.imageView];
+
+        CGSize scrollViewSize = self.scrollView.bounds.size;
+
+        CGFloat width = scrollViewSize.width / self.scrollView.maximumZoomScale;
+        CGFloat height = scrollViewSize.height / self.scrollView.maximumZoomScale;
+        CGFloat x = locationPoint.x - (width / 2);
+        CGFloat y = locationPoint.y - (height / 2);
+
+        [self.scrollView zoomToRect:CGRectMake(x, y, width, height) animated:YES];
+    } else {
+            // #9
+        [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
+    }
+}
 
 @end

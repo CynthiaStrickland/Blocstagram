@@ -41,16 +41,7 @@
     } else {
         ImagesTableTableViewController *imagesVC = [[ImagesTableTableViewController alloc] init];
         [navVC setViewControllers:@[imagesVC] animated:YES];
-    }
-        
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    [navVC setViewControllers:@[loginVC] animated:YES];
-
-    [[NSNotificationCenter defaultCenter] addObserverForName:LoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        ImagesTableTableViewController *imagesVC = [[ImagesTableTableViewController alloc] init];
-    [navVC setViewControllers:@[imagesVC] animated:YES];
-}];
-        
+    }        
         self.window.rootViewController = navVC;
         self.window.backgroundColor = [UIColor whiteColor];
         [self.window makeKeyAndVisible];
