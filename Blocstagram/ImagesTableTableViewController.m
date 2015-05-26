@@ -152,19 +152,19 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    UIImage *image = item.image;
+    //UIImage *image = item.image;
     
-    return 300 + (image.size.height / image.size.width * CGRectGetWidth(self.view.frame));
+    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];// 300 + (image.size.height / image.size.width * CGRectGetWidth(self.view.frame));
     
 }
 
-- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (item.image) {
-        return 350;
-    } else {
-        return 150;
-    }
-}
+//- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+//    if (item.image) {
+//        return 350;
+//    } else {
+//        return 150;
+//    }
+//}
 
 @end
