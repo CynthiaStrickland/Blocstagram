@@ -57,7 +57,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [DataSource instagramClientID], [self redirectURI]];
     NSURL *url = [NSURL URLWithString:urlString];
-
+    NSLog(@"%@",urlString);
     if (url) {
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
