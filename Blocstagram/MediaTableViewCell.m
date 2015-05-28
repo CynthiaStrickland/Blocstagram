@@ -24,7 +24,8 @@ Media* _mediaItem;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
-@property (nonatomic) NSUInteger numberOfTouchesRequired;
+@property (nonatomic, strong) UITapGestureRecognizer *twoTapGestureRecognizer;
+
 
 @end
 
@@ -46,8 +47,16 @@ static NSParagraphStyle *paragraphStyle;
         self.mediaImageView.userInteractionEnabled = YES;
 
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
+        self.tapGestureRecognizer.numberOfTapsRequired = 1;
+        self.twoTapGestureRecognizer.numberOfTouchesRequired = 1;
         self.tapGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
+
+        self.twoTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        self.twoTapGestureRecognizer.numberOfTouchesRequired = 2;
+        self.tapGestureRecognizer.numberOfTapsRequired = 1;
+        self.twoTapGestureRecognizer.delegate = self;
+        [self.mediaImageView addGestureRecognizer:self.twoTapGestureRecognizer];
         
         self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
         
@@ -234,12 +243,13 @@ static NSParagraphStyle *paragraphStyle;
 // **************** TWO TOUCHES to RETRY IMAGE DOWNLOAD ***********************************************
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-        self.tapGestureRecognizer.numberOfTouchesRequired = 2;
-        
-    }
+    
+        //if (tpacount==2) {
+            //delete image
+        self.mediaImageView.image = nil;
+            //forcre redownload
+        [self.delegate reloadImage:self];
+        //}
 }
 
 #pragma mark - UIGestureRecognizerDelegate

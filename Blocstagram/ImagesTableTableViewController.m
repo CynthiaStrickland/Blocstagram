@@ -152,6 +152,10 @@
 
 #pragma mark - MediaTableViewCellDelegate
 
+- (void) reloadImage:(MediaTableViewCell *)cell {
+    [[DataSource sharedInstance] forceDownload:cell.mediaItem];
+}
+
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
     MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
 
