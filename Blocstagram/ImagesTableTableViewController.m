@@ -20,18 +20,10 @@
 
 @implementation ImagesTableTableViewController
 
-//- (void) dealloc
-//   {
-//       [[DataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
-//   }
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-//        self.images = [NSMutableArray array];
-
     }
     return self;
 }
@@ -143,9 +135,13 @@
         // Delete the row from the data source
         Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
         [[DataSource sharedInstance] deleteMediaItem:item];
+        
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+
     }
 }
 
