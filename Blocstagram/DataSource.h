@@ -20,8 +20,9 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 +(instancetype) sharedInstance;
 
-- (void) deleteMediaItem:(Media *)item;
-- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
+- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
+- (void) deleteMediaItem:(Media *)item;
+- (void) downloadImageForMediaItem:(Media *)mediaItem;
 
 @end
