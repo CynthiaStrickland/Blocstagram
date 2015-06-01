@@ -19,33 +19,12 @@
 
 NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewControllerDidGetAccessTokenNotification";
 
-- (void) dealloc {
-    // Removing this line can cause a flickering effect when you relaunch the app after logging in, as the web view is briefly displayed, automatically authenticates with cookies, returns the access token, and dismisses the login view, sometimes in less than a second.
-    [self clearInstagramCookies];
-
-    // see https://developer.apple.com/library/ios/documentation/uikit/reference/UIWebViewDelegate_Protocol/Reference/Reference.html#//apple_ref/doc/uid/TP40006951-CH3-DontLinkElementID_1
-    self.webView.delegate = nil;
-}
-
-/**
-  + Clears Instagram cookies. This prevents caching the credentials in the cookie jar.
-  + */
-- (void) clearInstagramCookies {
-    for(NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
-        NSRange domainRange = [cookie.domain rangeOfString:@"instagram.com"];
-        if(domainRange.location != NSNotFound) {
-            [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
-        }
-    }
-}
-
 - (NSString *)redirectURI {
     return @"http://google.com";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     UIWebView *webView = [[UIWebView alloc] init];
     webView.delegate = self;
@@ -64,13 +43,16 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     }
 }
 
-- (void) viewWillLayoutSubviews {
-    self.webView.frame = self.view.bounds;
+- (void) dealloc {
+    // Removing this line can cause a flickering effect when you relaunch the app after logging in, as the web view is briefly displayed, automatically authenticates with cookies, returns the access token, and dismisses the login view, sometimes in less than a second.
+    [self clearInstagramCookies];
+    
+    // see https://developer.apple.com/library/ios/documentation/uikit/reference/UIWebViewDelegate_Protocol/Reference/Reference.html#//apple_ref/doc/uid/TP40006951-CH3-DontLinkElementID_1
+    self.webView.delegate = nil;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewWillLayoutSubviews {
+    self.webView.frame = self.view.bounds;
 }
 
 - (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -86,6 +68,17 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     }
     
     return YES;
+}
+
+//Clears Instagram cookies. This prevents caching the credentials in the cookie jar
+
+- (void) clearInstagramCookies {
+    for(NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
+        NSRange domainRange = [cookie.domain rangeOfString:@"instagram.com"];
+        if(domainRange.location != NSNotFound) {
+            [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+        }
+    }
 }
 
 @end

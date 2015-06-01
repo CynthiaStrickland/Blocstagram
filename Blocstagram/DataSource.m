@@ -18,7 +18,7 @@
     NSMutableArray *_mediaItems;
 }
 
-@property (nonatomic, strong) NSArray *mediaItems;
+@property (nonatomic, strong) NSMutableArray *mediaItems;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
 @property (nonatomic, strong) NSString *accessToken;
@@ -32,64 +32,12 @@
     return @"eeb5d2b7dea143d088e51a47b7035aee";
 }
 
-- (NSString *) pathForFilename:(NSString *) filename {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:filename];
-    return dataPath;
-}
-
-- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
-    
-    if (self.isRefreshing == NO) {
-        self.isRefreshing = YES;
-
-        NSString *minID = [[self.mediaItems lastObject] idNumber];
-        NSDictionary *parameters;
-        
-        if (minID) {
-            parameters = @{@"min_id": minID};
-        }
-        
-        [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
-            self.isLoadingOlderItems = NO;
-            if (completionHandler) {
-                completionHandler(error);
-            }
-        }];
-    }
-}
-
-- (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
-
-    self.thereAreNoMoreOlderMessages = NO;
-    
-    if (self.isLoadingOlderItems == NO && self.thereAreNoMoreOlderMessages == NO) {
-        self.isLoadingOlderItems = YES;
-
-        NSString *maxID = [[self.mediaItems firstObject] idNumber];
-        NSDictionary *parameters;
-
-        if (maxID) {
-            parameters = @{@"max_id": maxID};
-        }
-
-        [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
-            self.isRefreshing = NO;
-
-            if (completionHandler) {
-                completionHandler(error);
-            }
-        }];
-    }
-}
-
 + (instancetype) sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
-           sharedInstance = [[self alloc] init];
-       });
+        sharedInstance = [[self alloc] init];
+    });
     return sharedInstance;
 }
 
@@ -98,25 +46,25 @@
     
     if (self) {
         self.accessToken = [UICKeyChainStore stringForKey:@"access token"];
-
+        
         if (!self.accessToken) {
             [self registerForAccessTokenNotification];
         } else {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
                 NSArray *storedMediaItems = [NSKeyedUnarchiver unarchiveObjectWithFile:fullPath];
-
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (storedMediaItems.count > 0) {
                         NSMutableArray *mutableMediaItems = [storedMediaItems mutableCopy];
                         [self willChangeValueForKey:@"mediaItems"];
                         self.mediaItems = mutableMediaItems;
                         [self didChangeValueForKey:@"mediaItems"];
-                    // #1
+                        // #1
                         for (Media* mediaItem in self.mediaItems) {
                             [self downloadImageForMediaItem:mediaItem];
                         }
-
+                        
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
                     }
@@ -127,14 +75,55 @@
     return self;
 }
 
-- (void) registerForAccessTokenNotification {
-    [[NSNotificationCenter defaultCenter] addObserverForName:LoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        self.accessToken = note.object;
-        [UICKeyChainStore setString:self.accessToken forKey:@"access token"];
+- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
+    
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+
+        NSString *minID = [[self.mediaItems lastObject] idNumber];
+        NSDictionary *parameters = nil;
         
-        //HAVE A TOKEN; POPULATE THE INITIAL DATA
-        [self populateDataWithParameters:nil completionHandler:nil];
-    }];
+        if (self.mediaItems.count) {
+            parameters = @{@"min_id": minID};
+        }
+        
+        [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
+            self.isRefreshing = NO;
+            if (completionHandler) {
+                completionHandler(error);
+            }
+        }];
+    }
+    self.thereAreNoMoreOlderMessages = NO;
+}
+
+- (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
+    
+    if (self.isLoadingOlderItems == NO && self.thereAreNoMoreOlderMessages == NO) {
+        self.isLoadingOlderItems = YES;
+
+        NSString *maxID = [[self.mediaItems lastObject] idNumber];
+        NSDictionary *parameters = @{@"max_id": maxID};
+
+        [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
+            self.isLoadingOlderItems = NO;
+
+            if (completionHandler) {
+                completionHandler(error);
+            }
+        }];
+    }
+}
+
+- (void) deleteMediaItem:(Media *)item {
+    NSMutableArray *mutableArraywithKVO = [self mutableArrayValueForKey:@"mediaItem"];
+    [mutableArraywithKVO removeObject:item];
+}
+
+- (void) reloadMediaItems:(Media *)mediaItem {
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
+    [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
 }
 
 - (void) populateDataWithParameters:(NSDictionary *)parameters completionHandler:(NewItemCompletionBlock)completionHandler {
@@ -145,8 +134,6 @@
 // do the network request in the background, so the UI doesn't lock up
 
             NSMutableString *urlString = [NSMutableString stringWithFormat:@"https://api.instagram.com/v1/users/self/feed?access_token=%@", self.accessToken];
-                
-//MODIFIED API ADDRESS TRYING TO GET HUMANS OF NY DATAhttps://api.instagram.com/v1/humansofny/media/feed?access_token=%@ https://api.instagram.com/v1/users/self/feed?access_token=%@
                 
                 https://api.instagram.com/v1/starbucks/nofilter/media/recent?client_id=eeb5d2b7dea143d088e51a47b7035aee
             for (NSString *parameterName in parameters) {
@@ -208,14 +195,16 @@
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
 
     if (parameters[@"min_id"]) {
-        // This was a pull-to-refresh request
+        
+        // PULL-TO-REFRESH REQUEST
         
         NSRange rangeOfIndexes = NSMakeRange(0, tmpMediaItems.count);
         NSIndexSet *indexSetOfNewObjects = [NSIndexSet indexSetWithIndexesInRange:rangeOfIndexes];
         
         [mutableArrayWithKVO insertObjects:tmpMediaItems atIndexes:indexSetOfNewObjects];
     } else if (parameters[@"max_id"]) {
-        // This was an infinite scroll request
+        
+        // INFINITE SCROLL REQUEST
 
         if (tmpMediaItems.count == 0) {
             // disable infinite scroll, since there are no more older messages
@@ -228,12 +217,8 @@
             self.mediaItems = tmpMediaItems;
             [self didChangeValueForKey:@"mediaItems"];
         }
-    [self saveImages];
-}
-
-- (void) saveImages {
-
-    if (self.mediaItems.count > 0) {
+    
+    if (tmpMediaItems.count > 0) {
         // Write the changes to disk
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -276,7 +261,7 @@
                         NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
                         [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
                         
-                        [self saveImages];
+                        //[self saveImages];
                     });
                 }
             } else {
@@ -290,6 +275,10 @@
 
 - (NSUInteger) countOfMediaItems {
     return self.mediaItems.count;
+}
+
+- (id)objectInMediaItemsAtIndex:(NSUInteger)index {
+    return [self.mediaItems objectAtIndex:index];
 }
 
 - (NSArray *) mediaItemsAtIndexes:(NSIndexSet *)indexes {
@@ -308,9 +297,24 @@
     [_mediaItems replaceObjectAtIndex:index withObject:object];
 }
 
-- (void) deleteMediaItem:(Media *)item {
-    NSMutableArray *mutableArraywithKVO = [self mutableArrayValueForKey:@"mediaItem"];
-    [mutableArraywithKVO removeObject:item];
+#pragma mark - MISCELLANEOUS
+
+- (void) registerForAccessTokenNotification {
+    [[NSNotificationCenter defaultCenter] addObserverForName:LoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.accessToken = note.object;
+        [UICKeyChainStore setString:self.accessToken forKey:@"access token"];
+        
+        //   ********  GET A TOKEN; POPULATE THE INITIAL DATA *******
+        
+        [self populateDataWithParameters:nil completionHandler:nil];
+    }];
+}
+
+- (NSString *) pathForFilename:(NSString *) filename {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:filename];
+    return dataPath;
 }
 
 @end

@@ -24,6 +24,7 @@ Media* _mediaItem;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 @end
 
@@ -35,6 +36,22 @@ static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 
 @implementation MediaTableViewCell
+
++ (void)load {
+    lightFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
+    boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
+    usernameLabelGray = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1]; /*#eeeeee*/
+    commentLabelGray = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1]; /*#e5e5e5*/
+    linkColor = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1]; /*#58506d*/
+    
+    NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    mutableParagraphStyle.headIndent = 20.0;
+    mutableParagraphStyle.firstLineHeadIndent = 20.0;
+    mutableParagraphStyle.tailIndent = -20.0;
+    mutableParagraphStyle.paragraphSpacingBefore = 5;
+    
+    paragraphStyle = mutableParagraphStyle;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -49,7 +66,6 @@ static NSParagraphStyle *paragraphStyle;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
         
         self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
-        
         self.longPressGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
         
@@ -106,34 +122,43 @@ static NSParagraphStyle *paragraphStyle;
     return self;
 }
 
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    
+    // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
+    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
+    CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
+    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
+    
+    self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height == 0 ? 0 : usernameLabelSize.height + 20;
+    self.commentLabelHeightConstraint.constant = commentLabelSize.height == 0 ? 0 : commentLabelSize.height + 20;
+    
+    // ******** IMAGE CONSTANT FOR CONSTRAINT *******
+    
+    if (self.mediaItem.image.size.width > 0 && CGRectGetWidth(self.contentView.bounds) > 0) {
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    } else {
+        self.imageHeightConstraint.constant = 0;
+    }
+    
+    // Hide the line between cells
+    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
+}
 
-+ (void)load {
-    lightFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
-    boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
-    usernameLabelGray = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1]; /*#eeeeee*/
-    commentLabelGray = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1]; /*#e5e5e5*/
-    linkColor = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1]; /*#58506d*/
-
-    NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-    mutableParagraphStyle.headIndent = 20.0;
-    mutableParagraphStyle.firstLineHeadIndent = 20.0;
-    mutableParagraphStyle.tailIndent = -20.0;
-    mutableParagraphStyle.paragraphSpacingBefore = 5;
-
-    paragraphStyle = mutableParagraphStyle;
+- (void) setMediaItem:(Media *)mediaItem {
+    _mediaItem = mediaItem;
+    self.mediaImageView.image = _mediaItem.image;
+    self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
+    self.commentLabel.attributedText = [self commentString];
 }
 
 - (NSAttributedString *) usernameAndCaptionString {
-    // #1
     CGFloat usernameFontSize = 15;
 
-    // #2 - Make a string that says "username caption"
     NSString *baseString = [NSString stringWithFormat:@"%@ %@", self.mediaItem.user.userName, self.mediaItem.caption];
 
-    // #3 - Make an attributed string, with the "username" bold
     NSMutableAttributedString *mutableUsernameAndCaptionString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : [lightFont fontWithSize:usernameFontSize], NSParagraphStyleAttributeName : paragraphStyle}];
-    
-    // #4
+
     NSRange usernameRange = [baseString rangeOfString:self.mediaItem.user.userName];
     [mutableUsernameAndCaptionString addAttribute:NSFontAttributeName value:[boldFont fontWithSize:usernameFontSize] range:usernameRange];
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
@@ -161,48 +186,6 @@ static NSParagraphStyle *paragraphStyle;
    
     return commentString;
 }
-//    **************** removed exercise - 29 ***************
-//- (CGSize) sizeOfString:(NSAttributedString *)string {
-//    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.contentView.bounds) - 40, 0.0);
-//    CGRect sizeRect = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-//    sizeRect.size.height += 20;
-//    sizeRect = CGRectIntegral(sizeRect);
-//    return sizeRect.size;
-//}
-
-- (void) layoutSubviews {
-    [super layoutSubviews];
-
-//    CGFloat imageHeight = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
-//    self.mediaImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), imageHeight);
-//
-//    CGSize sizeOfUsernameAndCaptionLabel = [self sizeOfString:self.usernameAndCaptionLabel.attributedText];
-//    self.usernameAndCaptionLabel.frame = CGRectMake(0, CGRectGetMaxY(self.mediaImageView.frame), CGRectGetWidth(self.contentView.bounds), sizeOfUsernameAndCaptionLabel.height);
-//
-//    CGSize sizeOfCommentLabel = [self sizeOfString:self.commentLabel.attributedText];
-//    self.commentLabel.frame = CGRectMake(0, CGRectGetMaxY(self.usernameAndCaptionLabel.frame), CGRectGetWidth(self.bounds), sizeOfCommentLabel.height);
-
-     // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
-     CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
-     CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
-     CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
-    
-     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height == 0 ? 0 : usernameLabelSize.height + 20;
-     self.commentLabelHeightConstraint.constant = commentLabelSize.height == 0 ? 0 : commentLabelSize.height + 20;
-//     self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
-//
-    if (self.mediaItem.image.size.width > 0 && CGRectGetWidth(self.contentView.bounds) > 0) {
-        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
-    } else {
-        self.imageHeightConstraint.constant = 0;
-    }
-
-    // Hide the line between cells
-    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
-
-    // Hide the line between cells
-    self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
-}
 
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
     
@@ -220,23 +203,10 @@ static NSParagraphStyle *paragraphStyle;
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
 
-- (void) setMediaItem:(Media *)mediaItem {
-    _mediaItem = mediaItem;
-    self.mediaImageView.image = _mediaItem.image;
-    self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
-    self.commentLabel.attributedText = [self commentString];
-}
+#pragma mark - UIGestureRecognizerDelegate
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:NO animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    [super setHighlighted:NO animated:animated];
-    
-    // Configure the view for the selected state
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return self.isEditing == NO;
 }
 
 #pragma mark - Image View
@@ -251,10 +221,18 @@ static NSParagraphStyle *paragraphStyle;
     }
 }
 
-#pragma mark - UIGestureRecognizerDelegate
+#pragma mark - Miscellaneous
 
-- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return self.isEditing == NO;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:NO animated:animated];
+    
+    // Configure the view for the selected state
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:NO animated:animated];
+    
+    // Configure the view for the selected state
 }
 
 @end

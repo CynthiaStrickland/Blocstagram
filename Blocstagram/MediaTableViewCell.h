@@ -21,7 +21,6 @@
 
 @property (nonatomic, strong) Media *mediaItem;
 @property (nonatomic, weak) id <MediaTableViewCellDelegate> delegate;
-@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width;
 
