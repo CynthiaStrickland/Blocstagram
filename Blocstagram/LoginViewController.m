@@ -30,6 +30,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
 /**
   + Clears Instagram cookies. This prevents caching the credentials in the cookie jar.
   + */
+
 - (void) clearInstagramCookies {
     for(NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
         NSRange domainRange = [cookie.domain rangeOfString:@"instagram.com"];
@@ -38,7 +39,6 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         }
     }
 }
-
 
 - (NSString *)redirectURI {
     return @"http://google.com";

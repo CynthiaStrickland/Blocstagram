@@ -117,12 +117,12 @@
 		3DA83D381B0196A300C181DE /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
-				3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */,
-				3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */,
 				3DA83D3D1B0196A300C181DE /* AppDelegate.h */,
 				3DA83D3E1B0196A300C181DE /* AppDelegate.m */,
 				3DA83D771B019A5500C181DE /* ImagesTableTableViewController.h */,
 				3DA83D781B019A5500C181DE /* ImagesTableTableViewController.m */,
+				3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */,
+				3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */,
 				3DFEA73A1B0ADC07007A591D /* LoginViewController.h */,
 				3DFEA73B1B0ADC07007A591D /* LoginViewController.m */,
 				3DA83D7D1B01B2AE00C181DE /* Media.h */,
