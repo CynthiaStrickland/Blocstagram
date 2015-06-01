@@ -28,6 +28,8 @@
 		3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D7E1B01B2AE00C181DE /* Media.m */; };
 		3DA83D821B01B36B00C181DE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D811B01B36B00C181DE /* Comment.m */; };
 		3DA83D851B01B3E500C181DE /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D841B01B3E500C181DE /* DataSource.m */; };
+		3DD567621B1C439F00D08CB0 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD567611B1C439F00D08CB0 /* CircleSpinnerView.m */; };
+		3DD567651B1C445F00D08CB0 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD567641B1C445F00D08CB0 /* LikeButton.m */; };
 		3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */; };
 		3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */; };
 		3DFEA73C1B0ADC07007A591D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA73B1B0ADC07007A591D /* LoginViewController.m */; };
@@ -74,6 +76,10 @@
 		3DA83D811B01B36B00C181DE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		3DA83D831B01B3E500C181DE /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		3DA83D841B01B3E500C181DE /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3DD567601B1C439F00D08CB0 /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
+		3DD567611B1C439F00D08CB0 /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		3DD567631B1C445F00D08CB0 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		3DD567641B1C445F00D08CB0 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		3DE8B1451B127B9300A46A01 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
@@ -138,6 +144,10 @@
 			children = (
 				3DA83D3D1B0196A300C181DE /* AppDelegate.h */,
 				3DA83D3E1B0196A300C181DE /* AppDelegate.m */,
+				3DD567601B1C439F00D08CB0 /* CircleSpinnerView.h */,
+				3DD567611B1C439F00D08CB0 /* CircleSpinnerView.m */,
+				3DD567631B1C445F00D08CB0 /* LikeButton.h */,
+				3DD567641B1C445F00D08CB0 /* LikeButton.m */,
 				3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */,
 				3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */,
 				3DA83D771B019A5500C181DE /* ImagesTableTableViewController.h */,
@@ -359,12 +369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */,
+				3DD567621B1C439F00D08CB0 /* CircleSpinnerView.m in Sources */,
 				3DA83D7C1B01AFC600C181DE /* User.m in Sources */,
 				3DA83D821B01B36B00C181DE /* Comment.m in Sources */,
 				3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */,
 				3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */,
 				3DA83D791B019A5500C181DE /* ImagesTableTableViewController.m in Sources */,
 				3DFEA73C1B0ADC07007A591D /* LoginViewController.m in Sources */,
+				3DD567651B1C445F00D08CB0 /* LikeButton.m in Sources */,
 				3DA83D851B01B3E500C181DE /* DataSource.m in Sources */,
 				3DA83D3F1B0196A300C181DE /* AppDelegate.m in Sources */,
 				3DA83D3C1B0196A300C181DE /* main.m in Sources */,
