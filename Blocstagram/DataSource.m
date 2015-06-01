@@ -107,11 +107,12 @@
                                         if ([responseObject isKindOfClass:[NSDictionary class]]) {
                                             [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
                                         }
-                                        
+                                        NSLog(@"no response object");
                                         if (completionHandler) {
                                             completionHandler(nil);
                                         }
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                        NSLog(@"%@",error);
                                         if (completionHandler) {
                                             completionHandler(error);
                                         }
@@ -231,7 +232,7 @@
         NSDictionary *parameters;
         
         if (self.mediaItems.count) {
-            parameters = @{@"min_id": minID};
+            parameters = @{@"max_id": minID};
         }
         
         [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
@@ -254,7 +255,7 @@
         NSDictionary *parameters;
 
         if (maxID) {
-            parameters = @{@"max_id": maxID};
+            parameters = @{@"min_id": maxID};
         }
 
         [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
