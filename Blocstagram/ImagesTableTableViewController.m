@@ -15,8 +15,6 @@
 
 @interface ImagesTableTableViewController ()
 
-
-
 @end
 
 @implementation ImagesTableTableViewController
@@ -146,23 +144,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
-
-//- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-//    UIImage *image = item.image;
-//    
-//    return 300 + (image.size.height / image.size.width * CGRectGetWidth(self.view.frame));
-//    
-//}
-//
-//- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-//    if (item.image) {
-//        return 350;
-//    } else {
-//        return 150;
-//    }
-//}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
