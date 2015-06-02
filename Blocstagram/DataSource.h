@@ -25,5 +25,7 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 - (void) downloadImageForMediaItem:(Media *)mediaItem;
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
+- (void) commentOnMediaItem:(Media *)mediaItem withCommentText:(NSString *)commentText;
+
 
 @end
