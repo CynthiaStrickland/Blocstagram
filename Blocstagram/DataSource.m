@@ -120,11 +120,70 @@
     }
 }
 
-- (void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
-    
-    NSLog(@"%@", feedDictionary);
+//- (void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
+//    
+//    NSLog(@"%@", feedDictionary);
+//    NSArray *mediaArray = feedDictionary[@"data"];
+//    
+//    NSMutableArray *tmpMediaItems = [NSMutableArray array];
+//    
+//    for (NSDictionary *mediaDictionary in mediaArray) {
+//        Media *mediaItem = [[Media alloc] initWithDictionary:mediaDictionary];
+//        
+//        if (mediaItem) {
+//            [tmpMediaItems addObject:mediaItem];
+//            [self downloadImageForMediaItem:mediaItem];
+//        }
+//    }
+//    
+//    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+//    
+//    if (parameters[@"min_id"]) {
+//        // This was a pull-to-refresh request
+//        
+//        NSRange rangeOfIndexes = NSMakeRange(0, tmpMediaItems.count);
+//        NSIndexSet *indexSetOfNewObjects = [NSIndexSet indexSetWithIndexesInRange:rangeOfIndexes];
+//        
+//        [mutableArrayWithKVO insertObjects:tmpMediaItems atIndexes:indexSetOfNewObjects];
+//        
+//    } else if (parameters[@"max_id"]) {
+//        
+//        // This was an infinite scroll request
+//        
+//        if (tmpMediaItems.count == 0) {
+//            // disable infinite scroll, since there are no more older messages
+//            self.thereAreNoMoreOlderMessages = YES;
+//        } else {
+//            [mutableArrayWithKVO addObjectsFromArray:tmpMediaItems];
+//        }
+//    } else {
+//        [self willChangeValueForKey:@"mediaItems"];
+//        self.mediaItems = tmpMediaItems;
+//        [self didChangeValueForKey:@"mediaItems"];
+//    }
+//    
+//    if (tmpMediaItems.count > 0) {
+//        
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            NSUInteger numberOfItemsToSave = MIN(self.mediaItems.count, 50);
+//            NSArray *mediaItemsToSave = [self.mediaItems subarrayWithRange:NSMakeRange(0, numberOfItemsToSave)];
+//            
+//            NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
+//            NSData *mediaItemData = [NSKeyedArchiver archivedDataWithRootObject:mediaItemsToSave];
+//            
+//            NSError *dataError;
+//            BOOL wroteSuccessfully = [mediaItemData writeToFile:fullPath options:NSDataWritingAtomic | NSDataWritingFileProtectionCompleteUnlessOpen error:&dataError];
+//            
+//            if (!wroteSuccessfully) {
+//                NSLog(@"Couldn't write file: %@", dataError);
+//            }
+//        });
+//        
+//    }
+//}
+
+- (void)parseDataFromFeedDictionary:(NSDictionary *)feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
     NSArray *mediaArray = feedDictionary[@"data"];
-    
     NSMutableArray *tmpMediaItems = [NSMutableArray array];
     
     for (NSDictionary *mediaDictionary in mediaArray) {
@@ -132,27 +191,21 @@
         
         if (mediaItem) {
             [tmpMediaItems addObject:mediaItem];
+            [self downloadImageForMediaItem:mediaItem];
         }
     }
-    
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
     
     if (parameters[@"min_id"]) {
-        // This was a pull-to-refresh request
-        
         NSRange rangeOfIndexes = NSMakeRange(0, tmpMediaItems.count);
         NSIndexSet *indexSetOfNewObjects = [NSIndexSet indexSetWithIndexesInRange:rangeOfIndexes];
-        
         [mutableArrayWithKVO insertObjects:tmpMediaItems atIndexes:indexSetOfNewObjects];
     } else if (parameters[@"max_id"]) {
-        // This was an infinite scroll request
         
         if (tmpMediaItems.count == 0) {
-            // disable infinite scroll, since there are no more older messages
             self.thereAreNoMoreOlderMessages = YES;
-        } else {
-            [mutableArrayWithKVO addObjectsFromArray:tmpMediaItems];
         }
+        [mutableArrayWithKVO addObjectsFromArray:tmpMediaItems];
     } else {
         [self willChangeValueForKey:@"mediaItems"];
         self.mediaItems = tmpMediaItems;
@@ -161,6 +214,7 @@
     
     if (tmpMediaItems.count > 0) {
         
+        // Write the changes to disk
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSUInteger numberOfItemsToSave = MIN(self.mediaItems.count, 50);
             NSArray *mediaItemsToSave = [self.mediaItems subarrayWithRange:NSMakeRange(0, numberOfItemsToSave)];
@@ -175,7 +229,6 @@
                 NSLog(@"Couldn't write file: %@", dataError);
             }
         });
-        
     }
 }
 
