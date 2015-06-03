@@ -74,6 +74,7 @@
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:cancelImage style:UIBarButtonItemStyleDone target:self action:@selector(cancelPressed:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
 }
+    // ********* CREATE WHITE GRID OVER IMAGE IN CAMERA *********
 
 - (NSArray *) horizontalLines {
     if (!self.horizontalLines) {
