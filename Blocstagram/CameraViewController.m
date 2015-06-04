@@ -11,6 +11,8 @@
 #import "CameraToolbar.h"
 #import "UIImage+ImageUtilities.h"
 #import "MediaTableViewCell.h"
+#import "CropBox.h"
+
 
 @interface CameraViewController () <CameraToolbarDelegate, UIAlertViewDelegate>
 
@@ -21,12 +23,10 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 @property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;
 
-@property (nonatomic, strong) NSArray *verticalLines;
-@property (nonatomic, strong) NSArray *horizontalLines;
-
 @property (nonatomic, strong) UIToolbar *topView;
 @property (nonatomic, strong) UIToolbar *bottomView;
 
+@property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, strong) CameraToolbar *cameraToolbar;
 
 @end
@@ -46,9 +46,8 @@
 }
 
 - (void) addViewsToViewHierarchy {
-    NSMutableArray *views = [@[self.imagePreview, self.topView, self.bottomView] mutableCopy];
-    [views addObjectsFromArray:self.horizontalLines];
-    [views addObjectsFromArray:self.verticalLines];
+    NSMutableArray *views = [@[self.imagePreview, self.topView, self.cropBox, self.bottomView] mutableCopy];
+
     [views addObject:self.cameraToolbar];
 
     for (UIView *view in views) {
@@ -60,6 +59,7 @@
     self.imagePreview = [UIView new];
     self.topView = [UIToolbar new];
     self.bottomView = [UIToolbar new];
+    self.cropBox = [CropBox new];
     self.cameraToolbar = [[CameraToolbar alloc] initWithImageNames:@[@"rotate", @"road"]];
     self.cameraToolbar.delegate = self;
     UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
@@ -73,23 +73,6 @@
     UIImage *cancelImage = [UIImage imageNamed:@"x"];
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:cancelImage style:UIBarButtonItemStyleDone target:self action:@selector(cancelPressed:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
-}
-    // ********* CREATE WHITE GRID OVER IMAGE IN CAMERA *********
-
-- (NSArray *) horizontalLines {
-    if (!self.horizontalLines) {
-        self.horizontalLines = [self newArrayOfFourWhiteViews];
-    }
-
-    return self.horizontalLines;
-}
-
-- (NSArray *) verticalLines {
-    if (!_verticalLines) {
-        _verticalLines = [self newArrayOfFourWhiteViews];
-    }
-
-    return _verticalLines;
 }
 
 - (void) setupImageCapture {
@@ -172,23 +155,7 @@
             // #11
                     image = [image imageWithFixedOrientation];
                     image = [image imageResizedToMatchAspectRatioOfSize:self.captureVideoPreviewLayer.bounds.size];
-            
-            // #12
-                    UIView *leftLine = self.verticalLines.firstObject;
-                    UIView *rightLine = self.verticalLines.lastObject;
-                    UIView *topLine = self.horizontalLines.firstObject;
-                    UIView *bottomLine = self.horizontalLines.lastObject;
-        
-                    CGRect gridRect = CGRectMake(CGRectGetMinX(leftLine.frame),
-                    CGRectGetMinY(topLine.frame),
-                    CGRectGetMaxX(rightLine.frame) - CGRectGetMinX(leftLine.frame),
-                    CGRectGetMinY(bottomLine.frame) - CGRectGetMinY(topLine.frame));
-        
-                    CGRect cropRect = gridRect;
-                    cropRect.origin.x = (CGRectGetMinX(gridRect) + (image.size.width - CGRectGetWidth(gridRect)) / 2);
-        
-                    image = [image imageCroppedToRect:cropRect];
-            
+                
             // #13
                     dispatch_async(dispatch_get_main_queue(), ^{
                             [self.delegate cameraViewController:self didCompleteWithImage:image];
@@ -230,27 +197,11 @@
     CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
     CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
     self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
-    
-    CGFloat thirdOfWidth = width / 3;
-    
-    for (int i = 0; i < 4; i++) {
-            UIView *horizontalLine = self.horizontalLines[i];
-            UIView *verticalLine = self.verticalLines[i];
-    
-            horizontalLine.frame = CGRectMake(0, (i * thirdOfWidth) + CGRectGetMaxY(self.topView.frame), width, 0.5);
-    
-            CGRect verticalFrame = CGRectMake(i * thirdOfWidth, CGRectGetMaxY(self.topView.frame), 0.5, width);
-    
-            if (i == 3) {
-                    verticalFrame.origin.x -= 0.5;
-                }
-    
-            verticalLine.frame = verticalFrame;
-        }
 
     self.imagePreview.frame = self.view.bounds;
     self.captureVideoPreviewLayer.frame = self.imagePreview.bounds;
-
+    self.cropBox.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
+                                    
     CGFloat cameraToolbarHeight = 100;
     self.cameraToolbar.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - cameraToolbarHeight, width, cameraToolbarHeight);
 }
@@ -312,5 +263,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (UIImage *) imageByScalingToSize:(CGSize)size andCroppingWithRect:(CGRect)rect;
+
+
 
 @end
