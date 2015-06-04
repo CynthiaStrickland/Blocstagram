@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class ImageLibraryViewController;
+@class ImageLibraryCollectionViewController;
 
-@protocol ImageLibraryViewControllerDelegate <NSObject>
+@protocol ImageLibraryCollectionViewControllerDelegate <NSObject>
 
-- (void)imageLibraryViewController:(ImageLibraryViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image;
+- (void)imageLibraryCollectionViewController:(ImageLibraryCollectionViewController *)imageLibraryCollectionViewController didCompleteWithImage:(UIImage *)image;
 
 @end
 
-@interface ImageLibraryViewController : UICollectionViewController
+@interface ImageLibraryCollectionViewController : UICollectionViewController
 
-@property (nonatomic, weak) NSObject <ImageLibraryViewControllerDelegate> *delegate;
+@property (nonatomic, weak) NSObject <ImageLibraryCollectionViewControllerDelegate> *delegate;
 
 @end

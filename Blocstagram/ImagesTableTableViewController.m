@@ -17,7 +17,7 @@
 #import "CameraViewController.h"
 #import "ImageLibraryCollectionViewController.h"
 
-@interface ImagesTableTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, CameraViewControllerDelegate, ImageLibraryViewControllerDelegate>
+@interface ImagesTableTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, CameraViewControllerDelegate, ImageLibraryCollectionViewControllerDelegate>
 
 @property (nonatomic, weak) UIImageView *lastTappedImageView;
 @property (nonatomic, weak) UIView *lastSelectedCommentView;
@@ -56,7 +56,6 @@
             UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
             self.navigationItem.rightBarButtonItem = cameraButton;
         }
-
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -340,7 +339,7 @@
         cameraVC.delegate = self;
         imageVC = cameraVC;
     } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
-        ImageLibraryViewController *imageLibraryVC = [[ImageLibraryViewController alloc] init];
+        ImageLibraryCollectionViewController *imageLibraryVC = [[ImageLibraryCollectionViewController alloc] init];
         imageLibraryVC.delegate = self;
         imageVC = imageLibraryVC;
     }
@@ -352,8 +351,8 @@
     return;
 }
 
-- (void) imageLibraryViewController:(ImageLibraryViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image {
-    [imageLibraryViewController dismissViewControllerAnimated:YES completion:^{
+- (void) imageLibraryCollectionViewController:(ImageLibraryCollectionViewController *)imageLibraryCollectionViewController didCompleteWithImage:(UIImage *)image {
+    [imageLibraryCollectionViewController dismissViewControllerAnimated:YES completion:^{
             if (image) {
                     NSLog(@"Got an image!");
                 } else {

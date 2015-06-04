@@ -1,5 +1,5 @@
 //
-//  ImageLibraryViewController.m
+//  ImageLibraryCollectionViewController.m
 //  Blocstagram
 //
 //  Created by Andrew Carvajal on 4/19/15.
@@ -11,7 +11,8 @@
 #import "CropImageViewController.h"
 #import <Photos/Photos.h>
 
-@interface ImageLibraryViewController () <CropImageViewControllerDelegate, UICollectionViewDelegateFlowLayout>
+@interface ImageLibraryCollectionViewController ()
+<CropImageViewControllerDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) PHFetchResult *result;
 @property (nonatomic, strong) ALAssetsLibrary *library;
@@ -20,7 +21,7 @@
 
 @end
 
-@implementation ImageLibraryViewController
+@implementation ImageLibraryCollectionViewController
 
 static NSString * const reuseIdentifier = @"cell";
 
@@ -53,7 +54,7 @@ static NSString * const reuseIdentifier = @"cell";
 }
 
 - (void)cancelPressed:(UIBarButtonItem *)sender {
-    [self.delegate imageLibraryViewController:self didCompleteWithImage:nil];
+    [self.delegate imageLibraryCollectionViewController:self didCompleteWithImage:nil];
 }
 
 - (void) viewWillLayoutSubviews {
@@ -76,10 +77,6 @@ static NSString * const reuseIdentifier = @"cell";
     
     self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
 }
-
-
-
-
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -157,7 +154,7 @@ static NSString * const reuseIdentifier = @"cell";
 #pragma mark - CropImageViewControllerDelegate
 
 - (void) cropControllerFinishedWithImage:(UIImage *)croppedImage {
-    [self.delegate imageLibraryViewController:self didCompleteWithImage:croppedImage];
+    [self.delegate imageLibraryCollectionViewController:self didCompleteWithImage:croppedImage];
 }
 
 
