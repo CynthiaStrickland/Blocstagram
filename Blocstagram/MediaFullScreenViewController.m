@@ -57,16 +57,6 @@
 
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
-    
-//    UIButton *share = [UIButton buttonWithType:UIButtonTypeSystem];
-//    [button setTitle:@"Share" forState:UIControlStateNormal];
-//    [button setFrame:CGRectMake(100,100,100,50)];
-//    [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
-//
-// - (void) buttonPressed:(UIButton *)share {
-//      NSLog(@"Share");
-
 }
 
 - (void) viewWillLayoutSubviews {

@@ -13,9 +13,9 @@
 #import "Comment.h"
 #import "MediaTableViewCell.h"
 #import "MediaFullScreenViewController.h"
-#import "MediaFullScreenViewController.h"
 #import "CameraViewController.h"
 #import "ImageLibraryCollectionViewController.h"
+#import "PostToInstagramViewController.h"
 
 @interface ImagesTableTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, CameraViewControllerDelegate, ImageLibraryCollectionViewControllerDelegate>
 
@@ -60,6 +60,26 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
+
+- (void) handleImage:(UIImage *)image withNavigationController:(UINavigationController *)nav {
+    if (image) {
+            PostToInstagramViewController *postVC = [[PostToInstagramViewController alloc] initWithImage:image];
+    
+            [nav pushViewController:postVC animated:YES];
+        } else {
+            [nav dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+
+- (void) cameraViewController:(CameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image {
+    
+    [self handleImage:image withNavigationController:cameraViewController.navigationController];
+}
+
+//- (void) imageLibraryViewController:(ImageLibraryCollectionViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image {
+//    
+//    [self handleImage:image withNavigationController:ImageLibraryCollectionViewController.navigationController];
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
@@ -349,26 +369,6 @@
         [self presentViewController:nav animated:YES completion:nil];
     }
     return;
-}
-
-- (void) imageLibraryCollectionViewController:(ImageLibraryCollectionViewController *)imageLibraryCollectionViewController didCompleteWithImage:(UIImage *)image {
-    [imageLibraryCollectionViewController dismissViewControllerAnimated:YES completion:^{
-            if (image) {
-                    NSLog(@"Got an image!");
-                } else {
-                    NSLog(@"Closed without an image.");
-                }
-        }];
-}
-
-- (void) cameraViewController:(CameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image {
-    [cameraViewController dismissViewControllerAnimated:YES completion:^{
-        if (image) {
-            NSLog(@"Got an image!");
-        } else {
-            NSLog(@"Closed without an image.");
-        }
-    }];
 }
 
 @end
