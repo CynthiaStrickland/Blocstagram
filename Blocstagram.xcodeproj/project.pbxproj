@@ -39,6 +39,8 @@
 		3DED8E331B32040E00175C35 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E321B32040E00175C35 /* 6.jpg */; };
 		3DED8E351B32041A00175C35 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E341B32041A00175C35 /* 5.jpg */; };
 		3DED8E391B3205EF00175C35 /* images.xcassets.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E381B3205EF00175C35 /* images.xcassets.imageset */; };
+		3DED8E911B34BA1F00175C35 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E901B34BA1F00175C35 /* Settings-Watch.bundle */; };
+		3DED8E931B34BA3900175C35 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E921B34BA3900175C35 /* Storyboard.storyboard */; };
 		3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */; };
 		3DFEA73C1B0ADC07007A591D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA73B1B0ADC07007A591D /* LoginViewController.m */; };
 /* End PBXBuildFile section */
@@ -106,6 +108,9 @@
 		3DED8E321B32040E00175C35 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		3DED8E341B32041A00175C35 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		3DED8E381B3205EF00175C35 /* images.xcassets.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images.xcassets.imageset; sourceTree = "<group>"; };
+		3DED8E901B34BA1F00175C35 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
+		3DED8E921B34BA3900175C35 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		3DED8E941B34BA4C00175C35 /* NotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = NotificationPayload.apns; sourceTree = "<group>"; };
 		3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 		3DFEA73A1B0ADC07007A591D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -146,6 +151,9 @@
 		3DA83D2D1B0196A300C181DE = {
 			isa = PBXGroup;
 			children = (
+				3DED8E941B34BA4C00175C35 /* NotificationPayload.apns */,
+				3DED8E921B34BA3900175C35 /* Storyboard.storyboard */,
+				3DED8E901B34BA1F00175C35 /* Settings-Watch.bundle */,
 				3DA83D381B0196A300C181DE /* Blocstagram */,
 				3DA83D521B0196A400C181DE /* BlocstagramTests */,
 				3DA83D371B0196A300C181DE /* Products */,
@@ -349,7 +357,9 @@
 				3DED8E2D1B32040000175C35 /* 4.jpg in Resources */,
 				3DED8E391B3205EF00175C35 /* images.xcassets.imageset in Resources */,
 				3DED8E291B3203F800175C35 /* 2.jpg in Resources */,
+				3DED8E911B34BA1F00175C35 /* Settings-Watch.bundle in Resources */,
 				3DED8E311B32040A00175C35 /* 3.jpg in Resources */,
+				3DED8E931B34BA3900175C35 /* Storyboard.storyboard in Resources */,
 				3DED8E331B32040E00175C35 /* 6.jpg in Resources */,
 				3DED8E251B3203EA00175C35 /* 10.jpg in Resources */,
 				3DED8E2F1B32040500175C35 /* 7.jpg in Resources */,
