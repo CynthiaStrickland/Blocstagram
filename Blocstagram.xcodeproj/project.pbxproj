@@ -14,15 +14,12 @@
 		3DA83D4A1B0196A300C181DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D481B0196A300C181DE /* LaunchScreen.xib */; };
 		3DA83D561B0196A400C181DE /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D551B0196A400C181DE /* BlocstagramTests.m */; };
 		3DA83D6D1B0199F100C181DE /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D631B0199F100C181DE /* 1.jpg */; };
-		3DA83D6E1B0199F100C181DE /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D641B0199F100C181DE /* 2.JPG */; };
 		3DA83D6F1B0199F100C181DE /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D651B0199F100C181DE /* 3.jpg */; };
-		3DA83D701B0199F100C181DE /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D661B0199F100C181DE /* 4.JPG */; };
 		3DA83D711B0199F100C181DE /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D671B0199F100C181DE /* 5.jpg */; };
 		3DA83D721B0199F100C181DE /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D681B0199F100C181DE /* 6.jpg */; };
 		3DA83D731B0199F100C181DE /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D691B0199F100C181DE /* 7.jpg */; };
 		3DA83D741B0199F100C181DE /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D6A1B0199F100C181DE /* 8.jpg */; };
 		3DA83D751B0199F100C181DE /* 9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D6B1B0199F100C181DE /* 9.JPG */; };
-		3DA83D761B0199F100C181DE /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D6C1B0199F100C181DE /* 10.JPG */; };
 		3DA83D791B019A5500C181DE /* ImagesTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D781B019A5500C181DE /* ImagesTableTableViewController.m */; };
 		3DA83D7C1B01AFC600C181DE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D7B1B01AFC600C181DE /* User.m */; };
 		3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D7E1B01B2AE00C181DE /* Media.m */; };
@@ -38,6 +35,8 @@
 		3DD8F2961B1FB97700E6BEEF /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2951B1FB97700E6BEEF /* CropImageViewController.m */; };
 		3DD8F2991B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */; };
 		3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */; };
+		3DED8E591B34B34300175C35 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E581B34B34300175C35 /* 2.jpg */; };
+		3DED8E5D1B34B39100175C35 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E5C1B34B39100175C35 /* 10.jpg */; };
 		3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */; };
 		3DFEA73C1B0ADC07007A591D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA73B1B0ADC07007A591D /* LoginViewController.m */; };
 /* End PBXBuildFile section */
@@ -64,15 +63,12 @@
 		3DA83D541B0196A400C181DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA83D551B0196A400C181DE /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
 		3DA83D631B0199F100C181DE /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		3DA83D641B0199F100C181DE /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		3DA83D651B0199F100C181DE /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		3DA83D661B0199F100C181DE /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.JPG; sourceTree = "<group>"; };
 		3DA83D671B0199F100C181DE /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		3DA83D681B0199F100C181DE /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		3DA83D691B0199F100C181DE /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		3DA83D6A1B0199F100C181DE /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		3DA83D6B1B0199F100C181DE /* 9.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.JPG; sourceTree = "<group>"; };
-		3DA83D6C1B0199F100C181DE /* 10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.JPG; sourceTree = "<group>"; };
 		3DA83D771B019A5500C181DE /* ImagesTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableTableViewController.h; sourceTree = "<group>"; };
 		3DA83D781B019A5500C181DE /* ImagesTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableTableViewController.m; sourceTree = "<group>"; };
 		3DA83D7A1B01AFC600C181DE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -103,6 +99,8 @@
 		3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryCollectionViewController.m; sourceTree = "<group>"; };
 		3DE8B1451B127B9300A46A01 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
+		3DED8E581B34B34300175C35 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = "../../../Documents/AAA PICTURES/PEOPLE/2.jpg"; sourceTree = "<group>"; };
+		3DED8E5C1B34B39100175C35 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 		3DFEA73A1B0ADC07007A591D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -237,15 +235,14 @@
 			isa = PBXGroup;
 			children = (
 				3DA83D631B0199F100C181DE /* 1.jpg */,
-				3DA83D641B0199F100C181DE /* 2.JPG */,
+				3DED8E581B34B34300175C35 /* 2.jpg */,
 				3DA83D651B0199F100C181DE /* 3.jpg */,
-				3DA83D661B0199F100C181DE /* 4.JPG */,
+				3DED8E5C1B34B39100175C35 /* 10.jpg */,
 				3DA83D671B0199F100C181DE /* 5.jpg */,
 				3DA83D681B0199F100C181DE /* 6.jpg */,
 				3DA83D691B0199F100C181DE /* 7.jpg */,
 				3DA83D6A1B0199F100C181DE /* 8.jpg */,
 				3DA83D6B1B0199F100C181DE /* 9.JPG */,
-				3DA83D6C1B0199F100C181DE /* 10.JPG */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -341,14 +338,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA83D761B0199F100C181DE /* 10.JPG in Resources */,
+				3DED8E591B34B34300175C35 /* 2.jpg in Resources */,
+				3DED8E5D1B34B39100175C35 /* 10.jpg in Resources */,
 				3DA83D741B0199F100C181DE /* 8.jpg in Resources */,
 				3DA83D721B0199F100C181DE /* 6.jpg in Resources */,
-				3DA83D6E1B0199F100C181DE /* 2.JPG in Resources */,
 				3DA83D711B0199F100C181DE /* 5.jpg in Resources */,
 				3DA83D6D1B0199F100C181DE /* 1.jpg in Resources */,
 				3DA83D6F1B0199F100C181DE /* 3.jpg in Resources */,
-				3DA83D701B0199F100C181DE /* 4.JPG in Resources */,
 				3DA83D731B0199F100C181DE /* 7.jpg in Resources */,
 				3DA83D751B0199F100C181DE /* 9.JPG in Resources */,
 				3DA83D4A1B0196A300C181DE /* LaunchScreen.xib in Resources */,
