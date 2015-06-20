@@ -156,6 +156,8 @@
 		3DED8EB11B34BD8500175C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DED8EB31B34BD8500175C35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		3DED8EB51B34BD8500175C35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DED8EC11B34CDD900175C35 /* Blocstagram WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Blocstagram WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		3DED8EC21B34D74B00175C35 /* Blocstagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Blocstagram.entitlements; sourceTree = "<group>"; };
 		3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 		3DFEA73A1B0ADC07007A591D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		3DA83D381B0196A300C181DE /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				3DED8EC21B34D74B00175C35 /* Blocstagram.entitlements */,
 				3DA83D3D1B0196A300C181DE /* AppDelegate.h */,
 				3DA83D3E1B0196A300C181DE /* AppDelegate.m */,
 				3DD319DC1B1E64E0009F4F9B /* CameraToolbar.h */,
@@ -319,6 +322,7 @@
 		3DED8E9A1B34BD8400175C35 /* Blocstagram WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3DED8EC11B34CDD900175C35 /* Blocstagram WatchKit Extension.entitlements */,
 				3DED8E9E1B34BD8400175C35 /* InterfaceController.h */,
 				3DED8E9F1B34BD8400175C35 /* InterfaceController.m */,
 				3DED8EA11B34BD8400175C35 /* NotificationController.h */,
@@ -453,6 +457,11 @@
 					3DA83D351B0196A300C181DE = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = LK662Y5U4K;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3DA83D4E1B0196A400C181DE = {
 						CreatedOnToolsVersion = 6.2;
@@ -461,6 +470,11 @@
 					3DED8E981B34BD8300175C35 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = LK662Y5U4K;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3DED8EAA1B34BD8500175C35 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -737,10 +751,11 @@
 			baseConfigurationReference = E4F77F792CD312F917C77F36 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Blocstagram/Blocstagram.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blocstagram/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -753,10 +768,11 @@
 			baseConfigurationReference = 8481656597BD1DD50C6669C1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Blocstagram/Blocstagram.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blocstagram/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -810,7 +826,7 @@
 				);
 				IBSC_MODULE = Blocstagram_WatchKit_Extension;
 				INFOPLIST_FILE = "Blocstagram WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -826,7 +842,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = Blocstagram_WatchKit_Extension;
 				INFOPLIST_FILE = "Blocstagram WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -837,6 +853,7 @@
 		3DED8EBE1B34BD8500175C35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Blocstagram WatchKit Extension/Blocstagram WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -849,6 +866,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -856,6 +874,7 @@
 		3DED8EBF1B34BD8500175C35 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Blocstagram WatchKit Extension/Blocstagram WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -864,6 +883,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -905,6 +925,7 @@
 				3DED8EBC1B34BD8500175C35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DED8EBD1B34BD8500175C35 /* Build configuration list for PBXNativeTarget "Blocstagram WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -913,6 +934,7 @@
 				3DED8EBF1B34BD8500175C35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
