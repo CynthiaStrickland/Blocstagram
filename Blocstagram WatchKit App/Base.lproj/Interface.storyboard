@@ -8,7 +8,13 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label width="136" height="24" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="aXD-7X-tl8"/>
+                        <imageView width="136" height="88" alignment="left" id="TLb-gQ-RAa"/>
+                        <label width="136" height="26" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="D03-du-d7i"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
         </scene>

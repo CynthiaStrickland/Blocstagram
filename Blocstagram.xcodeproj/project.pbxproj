@@ -27,6 +27,8 @@
 		3DD8F2961B1FB97700E6BEEF /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2951B1FB97700E6BEEF /* CropImageViewController.m */; };
 		3DD8F2991B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */; };
 		3DD9222E1B210AE300D80060 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */; };
+		3DDD82D81B352FEC003BAD00 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD82D71B352FEC003BAD00 /* WatchKit.framework */; };
+		3DDD82D91B353003003BAD00 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD82D71B352FEC003BAD00 /* WatchKit.framework */; };
 		3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */; };
 		3DED8E231B3203BD00175C35 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E221B3203BD00175C35 /* 1.jpg */; };
 		3DED8E251B3203EA00175C35 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E241B3203EA00175C35 /* 10.jpg */; };
@@ -129,6 +131,7 @@
 		3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryCollectionViewController.m; sourceTree = "<group>"; };
 		3DD9222C1B210AE300D80060 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
 		3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
+		3DDD82D71B352FEC003BAD00 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		3DE8B1451B127B9300A46A01 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		3DED8E221B3203BD00175C35 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDD82D91B353003003BAD00 /* WatchKit.framework in Frameworks */,
 				0E16F20ED66AD547C1557064 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDD82D81B352FEC003BAD00 /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +370,7 @@
 		CD4B548BD08FD9B31C17E641 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DDD82D71B352FEC003BAD00 /* WatchKit.framework */,
 				698770E00DFA8E8C1E041647 /* libPods.a */,
 			);
 			name = Frameworks;
