@@ -29,6 +29,7 @@
 		3DD9222E1B210AE300D80060 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */; };
 		3DDD82D81B352FEC003BAD00 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD82D71B352FEC003BAD00 /* WatchKit.framework */; };
 		3DDD82D91B353003003BAD00 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD82D71B352FEC003BAD00 /* WatchKit.framework */; };
+		3DDD83311B37CCFC003BAD00 /* Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD83301B37CCFC003BAD00 /* Instagram.m */; };
 		3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */; };
 		3DED8E231B3203BD00175C35 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E221B3203BD00175C35 /* 1.jpg */; };
 		3DED8E251B3203EA00175C35 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E241B3203EA00175C35 /* 10.jpg */; };
@@ -132,6 +133,8 @@
 		3DD9222C1B210AE300D80060 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
 		3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		3DDD82D71B352FEC003BAD00 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		3DDD832F1B37CCFC003BAD00 /* Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instagram.h; sourceTree = "<group>"; };
+		3DDD83301B37CCFC003BAD00 /* Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instagram.m; sourceTree = "<group>"; };
 		3DE8B1451B127B9300A46A01 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		3DED8E221B3203BD00175C35 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -343,6 +346,8 @@
 		3DED8E9B1B34BD8400175C35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3DDD832F1B37CCFC003BAD00 /* Instagram.h */,
+				3DDD83301B37CCFC003BAD00 /* Instagram.m */,
 				3DED8E9C1B34BD8400175C35 /* Info.plist */,
 				3DED8E9D1B34BD8400175C35 /* PushNotificationPayload.apns */,
 			);
@@ -628,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDD83311B37CCFC003BAD00 /* Instagram.m in Sources */,
 				3DED8EA31B34BD8400175C35 /* NotificationController.m in Sources */,
 				3DED8EA01B34BD8400175C35 /* InterfaceController.m in Sources */,
 				3DED8EA61B34BD8400175C35 /* GlanceController.m in Sources */,
