@@ -7,9 +7,18 @@
 //
 
 #import "NotificationController.h"
+#import "InterfaceController.h"
+#import <WatchKit/watchKit.h>
+#import "Appdelegate.h"
 
 
 @interface NotificationController()
+
+@property(nonatomic) UILocalNotification *localNotification;
+@property(nonatomic, copy) NSString *alertAction;
+@property(nonatomic, copy) NSString *alertBody;
+@property(nonatomic) NSCalendarUnit repeatInterval;
+@property(nonatomic, copy) NSDate *fireDate;
 
 @end
 
@@ -21,7 +30,16 @@
     if (self){
         // Initialize variables here.
         // Configure interface objects here.
+    
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         
+        self.localNotification.alertAction = @"Post to Instagram";
+        self.localNotification.alertBody = [NSString stringWithFormat:@"Reach your publishing goal. Post to Instagram now."];
+        self.localNotification.repeatInterval = NSCalendarUnitMinute;
+        self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:(120)];
+        self.localNotification.timeZone = [NSTimeZone defaultTimeZone];
+
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     }
     return self;
 }

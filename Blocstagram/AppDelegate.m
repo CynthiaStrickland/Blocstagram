@@ -10,20 +10,88 @@
 #import "ImagesTableTableViewController.h"
 #import "LoginViewController.h"
 #import "DataSource.h"
-
+#import <Pushbots/Pushbots.h>
 
 @interface AppDelegate ()
+
 
 @end
 
 @implementation AppDelegate
 
 
+// This method will be called everytime you open the app and Register the deviceToken on Pushbots
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [[Pushbots sharedInstance] registerOnPushbots:deviceToken];
+}
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"Notification Registration Error %@", [error userInfo]);
+}
+
+//Handle notification when the user click it while app is running in background or foreground.
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [[Pushbots sharedInstance] receivedPush:userInfo];
+}
+
+-(void) receivedPush:(NSDictionary *)userInfo {
+        //Try to get Notification from [didReceiveRemoteNotification] dictionary
+    NSDictionary *pushNotification = [userInfo objectForKey:@"aps"];
+    
+    if(!pushNotification) {
+        //Try as launchOptions dictionary
+        userInfo = [userInfo objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        pushNotification = [userInfo objectForKey:@"aps"];
+    }
+    
+    if (!pushNotification)
+        return;
+    
+            //Get notification payload data [Custom fields] For example: get viewControllerIdentifer for deep linking
+    NSString* notificationViewControllerIdentifer = [userInfo objectForKey:@"notification_identifier"];
+    
+            //Set the default viewController Identifer
+    if(!notificationViewControllerIdentifer)
+        notificationViewControllerIdentifer = @"home";
+    
+    UIAlertView *message =
+    [[UIAlertView alloc] initWithTitle:@"Notification"
+                               message:[pushNotification valueForKey:@"alert"]
+                              delegate:self
+                     cancelButtonTitle:nil
+                     otherButtonTitles: @"OK",
+     nil];
+    
+    [message show];
+    return;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"OK"])
+    {
+        [[Pushbots sharedInstance] OpenedNotification];
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //INITIALIZES PUSHBOTS LIBRARY
+    
+    [Pushbots sharedInstanceWithAppId:@"558879fc177959a5738b4567"];
+            //Handle notification when the user click it, while app is closed.
+            //This method will show an alert to the user.
+    [[Pushbots sharedInstance] receivedPush:launchOptions];
+    
     {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
  
-    [DataSource sharedInstance]; // create the data source (so it can receive the access token notification)
+    [DataSource sharedInstance];
+        
+        
+            // create the data source (so it can receive the access token notification)
 
     UINavigationController *navVC = [[UINavigationController alloc] init];
         
@@ -48,6 +116,7 @@
         
         return YES;
     }
+    
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

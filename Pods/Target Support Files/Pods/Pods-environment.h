@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
+// Pushbots
+#define COCOAPODS_POD_AVAILABLE_Pushbots
+#define COCOAPODS_VERSION_MAJOR_Pushbots 1
+#define COCOAPODS_VERSION_MINOR_Pushbots 1
+#define COCOAPODS_VERSION_PATCH_Pushbots 0
+
 // UICKeyChainStore
 #define COCOAPODS_POD_AVAILABLE_UICKeyChainStore
 #define COCOAPODS_VERSION_MAJOR_UICKeyChainStore 2

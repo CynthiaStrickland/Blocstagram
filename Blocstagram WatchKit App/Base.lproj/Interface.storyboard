@@ -8,27 +8,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
-                    <items>
-                        <table alignment="left" id="Zs5-zc-v60">
-                            <items>
-                                <tableRow identifier="InstagramRow" id="Idk-0n-NlG" customClass="Instagram">
-                                    <group key="rootItem" width="1" height="126.5" alignment="left" id="i3P-25-SWz">
-                                        <items>
-                                            <imageView width="131" height="123" alignment="left" id="w9g-sB-mEi"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="Outlet" destination="w9g-sB-mEi" id="G46-Be-eiD"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                    </items>
-                    <connections>
-                        <outlet property="InstagramTable" destination="Zs5-zc-v60" id="K2e-M8-7xs"/>
-                    </connections>
-                </controller>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController"/>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
         </scene>
@@ -50,7 +30,9 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                        <label alignment="left" text="Time to Post Create a new post to reach your goal!" numberOfLines="4" minimumScaleFactor="0.0" id="XkS-y5-khE">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </label>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
