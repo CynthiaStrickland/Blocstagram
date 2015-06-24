@@ -10,6 +10,7 @@
 
 
 @interface NotificationController()
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *Outlet;
 
 @end
 
