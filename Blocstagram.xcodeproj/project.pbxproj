@@ -7,13 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E16F20ED66AD547C1557064 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 698770E00DFA8E8C1E041647 /* libPods.a */; };
 		3DA83D3C1B0196A300C181DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D3B1B0196A300C181DE /* main.m */; };
 		3DA83D3F1B0196A300C181DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D3E1B0196A300C181DE /* AppDelegate.m */; };
-		3DA83D421B0196A300C181DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D411B0196A300C181DE /* ViewController.m */; };
-		3DA83D451B0196A300C181DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D431B0196A300C181DE /* Main.storyboard */; };
-		3DA83D471B0196A300C181DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D461B0196A300C181DE /* Images.xcassets */; };
 		3DA83D4A1B0196A300C181DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA83D481B0196A300C181DE /* LaunchScreen.xib */; };
 		3DA83D561B0196A400C181DE /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D551B0196A400C181DE /* BlocstagramTests.m */; };
+		3DA83D791B019A5500C181DE /* ImagesTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D781B019A5500C181DE /* ImagesTableTableViewController.m */; };
+		3DA83D7C1B01AFC600C181DE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D7B1B01AFC600C181DE /* User.m */; };
+		3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D7E1B01B2AE00C181DE /* Media.m */; };
+		3DA83D821B01B36B00C181DE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D811B01B36B00C181DE /* Comment.m */; };
+		3DA83D851B01B3E500C181DE /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA83D841B01B3E500C181DE /* DataSource.m */; };
+		3DCEB8591B1D2F8100BA4064 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCEB8581B1D2F8100BA4064 /* ComposeCommentView.m */; };
+		3DD319DE1B1E64E0009F4F9B /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD319DD1B1E64E0009F4F9B /* CameraToolbar.m */; };
+		3DD319E11B1E659B009F4F9B /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD319E01B1E659B009F4F9B /* CameraViewController.m */; };
+		3DD319E41B1E66AC009F4F9B /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD319E31B1E66AC009F4F9B /* UIImage+ImageUtilities.m */; };
+		3DD567621B1C439F00D08CB0 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD567611B1C439F00D08CB0 /* CircleSpinnerView.m */; };
+		3DD567651B1C445F00D08CB0 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD567641B1C445F00D08CB0 /* LikeButton.m */; };
+		3DD8F2931B1FB23500E6BEEF /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2921B1FB23500E6BEEF /* CropBox.m */; };
+		3DD8F2961B1FB97700E6BEEF /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2951B1FB97700E6BEEF /* CropImageViewController.m */; };
+		3DD8F2991B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */; };
+		3DD9222E1B210AE300D80060 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */; };
+		3DDD82D81B352FEC003BAD00 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD82D71B352FEC003BAD00 /* WatchKit.framework */; };
+		3DDD82D91B353003003BAD00 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD82D71B352FEC003BAD00 /* WatchKit.framework */; };
+		3DDD83311B37CCFC003BAD00 /* Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD83301B37CCFC003BAD00 /* Instagram.m */; };
+		3DDD83371B38BE55003BAD00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD83361B38BE55003BAD00 /* CoreLocation.framework */; };
+		3DDD83391B38BE6F003BAD00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD83381B38BE6F003BAD00 /* MobileCoreServices.framework */; };
+		3DDD833B1B38BE8D003BAD00 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD833A1B38BE8D003BAD00 /* SystemConfiguration.framework */; };
+		3DDD833D1B38BE98003BAD00 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDD833C1B38BE98003BAD00 /* CoreTelephony.framework */; };
+		3DDD833F1B38CFD9003BAD00 /* image 27pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD833E1B38CFD9003BAD00 /* image 27pt.png */; };
+		3DDD83421B3B196A003BAD00 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD83411B3B196A003BAD00 /* NotificationController.m */; };
+		3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */; };
+		3DED8E231B3203BD00175C35 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E221B3203BD00175C35 /* 1.jpg */; };
+		3DED8E251B3203EA00175C35 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E241B3203EA00175C35 /* 10.jpg */; };
+		3DED8E271B3203F100175C35 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E261B3203F100175C35 /* 9.jpg */; };
+		3DED8E291B3203F800175C35 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E281B3203F800175C35 /* 2.jpg */; };
+		3DED8E2B1B3203FC00175C35 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E2A1B3203FC00175C35 /* 8.jpg */; };
+		3DED8E2D1B32040000175C35 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E2C1B32040000175C35 /* 4.jpg */; };
+		3DED8E2F1B32040500175C35 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E2E1B32040500175C35 /* 7.jpg */; };
+		3DED8E311B32040A00175C35 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E301B32040A00175C35 /* 3.jpg */; };
+		3DED8E331B32040E00175C35 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E321B32040E00175C35 /* 6.jpg */; };
+		3DED8E351B32041A00175C35 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E341B32041A00175C35 /* 5.jpg */; };
+		3DED8E391B3205EF00175C35 /* images.xcassets.imageset in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8E381B3205EF00175C35 /* images.xcassets.imageset */; };
+		3DED8EA01B34BD8400175C35 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED8E9F1B34BD8400175C35 /* InterfaceController.m */; };
+		3DED8EA61B34BD8400175C35 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED8EA51B34BD8400175C35 /* GlanceController.m */; };
+		3DED8EA81B34BD8400175C35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8EA71B34BD8400175C35 /* Images.xcassets */; };
+		3DED8EAC1B34BD8500175C35 /* Blocstagram WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8EAB1B34BD8500175C35 /* Blocstagram WatchKit App.app */; };
+		3DED8EB41B34BD8500175C35 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8EB21B34BD8500175C35 /* Interface.storyboard */; };
+		3DED8EB61B34BD8500175C35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DED8EB51B34BD8500175C35 /* Images.xcassets */; };
+		3DED8EB91B34BD8500175C35 /* Blocstagram WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3DED8E991B34BD8300175C35 /* Blocstagram WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */; };
+		3DFEA73C1B0ADC07007A591D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEA73B1B0ADC07007A591D /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +67,35 @@
 			remoteGlobalIDString = 3DA83D351B0196A300C181DE;
 			remoteInfo = Blocstagram;
 		};
+		3DED8EAD1B34BD8500175C35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DA83D2E1B0196A300C181DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DED8EAA1B34BD8500175C35;
+			remoteInfo = "Blocstagram WatchKit App";
+		};
+		3DED8EB71B34BD8500175C35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DA83D2E1B0196A300C181DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DED8E981B34BD8300175C35;
+			remoteInfo = "Blocstagram WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DED8EC01B34BD8500175C35 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3DED8EB91B34BD8500175C35 /* Blocstagram WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3DA83D361B0196A300C181DE /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,14 +103,84 @@
 		3DA83D3B1B0196A300C181DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DA83D3D1B0196A300C181DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DA83D3E1B0196A300C181DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3DA83D401B0196A300C181DE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3DA83D411B0196A300C181DE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3DA83D441B0196A300C181DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3DA83D461B0196A300C181DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DA83D491B0196A300C181DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3DA83D4F1B0196A400C181DE /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA83D541B0196A400C181DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA83D551B0196A400C181DE /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
+		3DA83D771B019A5500C181DE /* ImagesTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableTableViewController.h; sourceTree = "<group>"; };
+		3DA83D781B019A5500C181DE /* ImagesTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableTableViewController.m; sourceTree = "<group>"; };
+		3DA83D7A1B01AFC600C181DE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3DA83D7B1B01AFC600C181DE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3DA83D7D1B01B2AE00C181DE /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		3DA83D7E1B01B2AE00C181DE /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		3DA83D801B01B36B00C181DE /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		3DA83D811B01B36B00C181DE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		3DA83D831B01B3E500C181DE /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		3DA83D841B01B3E500C181DE /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3DCEB8571B1D2F8100BA4064 /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
+		3DCEB8581B1D2F8100BA4064 /* ComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentView.m; sourceTree = "<group>"; };
+		3DD319DC1B1E64E0009F4F9B /* CameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraToolbar.h; sourceTree = "<group>"; };
+		3DD319DD1B1E64E0009F4F9B /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
+		3DD319DF1B1E659B009F4F9B /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		3DD319E01B1E659B009F4F9B /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		3DD319E21B1E66AC009F4F9B /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
+		3DD319E31B1E66AC009F4F9B /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
+		3DD567601B1C439F00D08CB0 /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
+		3DD567611B1C439F00D08CB0 /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		3DD567631B1C445F00D08CB0 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		3DD567641B1C445F00D08CB0 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		3DD8F2911B1FB23500E6BEEF /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
+		3DD8F2921B1FB23500E6BEEF /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
+		3DD8F2941B1FB97700E6BEEF /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
+		3DD8F2951B1FB97700E6BEEF /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
+		3DD8F2971B1FC68000E6BEEF /* ImageLibraryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryCollectionViewController.h; sourceTree = "<group>"; };
+		3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryCollectionViewController.m; sourceTree = "<group>"; };
+		3DD9222C1B210AE300D80060 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
+		3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
+		3DDD82D71B352FEC003BAD00 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		3DDD832F1B37CCFC003BAD00 /* Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instagram.h; sourceTree = "<group>"; };
+		3DDD83301B37CCFC003BAD00 /* Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instagram.m; sourceTree = "<group>"; };
+		3DDD83361B38BE55003BAD00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3DDD83381B38BE6F003BAD00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3DDD833A1B38BE8D003BAD00 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3DDD833C1B38BE98003BAD00 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3DDD833E1B38CFD9003BAD00 /* image 27pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image 27pt.png"; sourceTree = "<group>"; };
+		3DDD83401B3B196A003BAD00 /* NotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		3DDD83411B3B196A003BAD00 /* NotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		3DE8B1451B127B9300A46A01 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
+		3DED8E221B3203BD00175C35 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		3DED8E241B3203EA00175C35 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		3DED8E261B3203F100175C35 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		3DED8E281B3203F800175C35 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		3DED8E2A1B3203FC00175C35 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		3DED8E2C1B32040000175C35 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		3DED8E2E1B32040500175C35 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		3DED8E301B32040A00175C35 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		3DED8E321B32040E00175C35 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		3DED8E341B32041A00175C35 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		3DED8E381B3205EF00175C35 /* images.xcassets.imageset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images.xcassets.imageset; sourceTree = "<group>"; };
+		3DED8E991B34BD8300175C35 /* Blocstagram WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Blocstagram WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DED8E9C1B34BD8400175C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DED8E9D1B34BD8400175C35 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		3DED8E9E1B34BD8400175C35 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		3DED8E9F1B34BD8400175C35 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		3DED8EA41B34BD8400175C35 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
+		3DED8EA51B34BD8400175C35 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
+		3DED8EA71B34BD8400175C35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DED8EAB1B34BD8500175C35 /* Blocstagram WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blocstagram WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DED8EB11B34BD8500175C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DED8EB31B34BD8500175C35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3DED8EB51B34BD8500175C35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DED8EC11B34CDD900175C35 /* Blocstagram WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Blocstagram WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		3DED8EC21B34D74B00175C35 /* Blocstagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Blocstagram.entitlements; sourceTree = "<group>"; };
+		3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
+		3DFEA73A1B0ADC07007A591D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3DFEA73B1B0ADC07007A591D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		698770E00DFA8E8C1E041647 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8481656597BD1DD50C6669C1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E4F77F792CD312F917C77F36 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +188,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDD833D1B38BE98003BAD00 /* CoreTelephony.framework in Frameworks */,
+				3DDD833B1B38BE8D003BAD00 /* SystemConfiguration.framework in Frameworks */,
+				3DDD83391B38BE6F003BAD00 /* MobileCoreServices.framework in Frameworks */,
+				3DDD83371B38BE55003BAD00 /* CoreLocation.framework in Frameworks */,
+				3DDD82D91B353003003BAD00 /* WatchKit.framework in Frameworks */,
+				0E16F20ED66AD547C1557064 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,15 +204,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DED8E961B34BD8300175C35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DDD82D81B352FEC003BAD00 /* WatchKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37A23BAD04EEA11EF8432835 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4F77F792CD312F917C77F36 /* Pods.debug.xcconfig */,
+				8481656597BD1DD50C6669C1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3DA83D2D1B0196A300C181DE = {
 			isa = PBXGroup;
 			children = (
 				3DA83D381B0196A300C181DE /* Blocstagram */,
 				3DA83D521B0196A400C181DE /* BlocstagramTests */,
+				3DED8E9A1B34BD8400175C35 /* Blocstagram WatchKit Extension */,
+				3DED8EAF1B34BD8500175C35 /* Blocstagram WatchKit App */,
 				3DA83D371B0196A300C181DE /* Products */,
+				37A23BAD04EEA11EF8432835 /* Pods */,
+				CD4B548BD08FD9B31C17E641 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +242,8 @@
 			children = (
 				3DA83D361B0196A300C181DE /* Blocstagram.app */,
 				3DA83D4F1B0196A400C181DE /* BlocstagramTests.xctest */,
+				3DED8E991B34BD8300175C35 /* Blocstagram WatchKit Extension.appex */,
+				3DED8EAB1B34BD8500175C35 /* Blocstagram WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,12 +251,47 @@
 		3DA83D381B0196A300C181DE /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				3DED8EC21B34D74B00175C35 /* Blocstagram.entitlements */,
 				3DA83D3D1B0196A300C181DE /* AppDelegate.h */,
 				3DA83D3E1B0196A300C181DE /* AppDelegate.m */,
-				3DA83D401B0196A300C181DE /* ViewController.h */,
-				3DA83D411B0196A300C181DE /* ViewController.m */,
-				3DA83D431B0196A300C181DE /* Main.storyboard */,
-				3DA83D461B0196A300C181DE /* Images.xcassets */,
+				3DD319DC1B1E64E0009F4F9B /* CameraToolbar.h */,
+				3DD319DD1B1E64E0009F4F9B /* CameraToolbar.m */,
+				3DD319DF1B1E659B009F4F9B /* CameraViewController.h */,
+				3DD319E01B1E659B009F4F9B /* CameraViewController.m */,
+				3DD567601B1C439F00D08CB0 /* CircleSpinnerView.h */,
+				3DD567611B1C439F00D08CB0 /* CircleSpinnerView.m */,
+				3DA83D801B01B36B00C181DE /* Comment.h */,
+				3DA83D811B01B36B00C181DE /* Comment.m */,
+				3DCEB8571B1D2F8100BA4064 /* ComposeCommentView.h */,
+				3DCEB8581B1D2F8100BA4064 /* ComposeCommentView.m */,
+				3DD8F2911B1FB23500E6BEEF /* CropBox.h */,
+				3DD8F2921B1FB23500E6BEEF /* CropBox.m */,
+				3DD8F2941B1FB97700E6BEEF /* CropImageViewController.h */,
+				3DD8F2951B1FB97700E6BEEF /* CropImageViewController.m */,
+				3DA83D831B01B3E500C181DE /* DataSource.h */,
+				3DA83D841B01B3E500C181DE /* DataSource.m */,
+				3DD8F2971B1FC68000E6BEEF /* ImageLibraryCollectionViewController.h */,
+				3DD8F2981B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m */,
+				3DA83D771B019A5500C181DE /* ImagesTableTableViewController.h */,
+				3DA83D781B019A5500C181DE /* ImagesTableTableViewController.m */,
+				3DD567631B1C445F00D08CB0 /* LikeButton.h */,
+				3DD567641B1C445F00D08CB0 /* LikeButton.m */,
+				3DFEA73A1B0ADC07007A591D /* LoginViewController.h */,
+				3DFEA73B1B0ADC07007A591D /* LoginViewController.m */,
+				3DE8B1451B127B9300A46A01 /* MediaFullScreenViewController.h */,
+				3DE8B1461B127B9300A46A01 /* MediaFullScreenViewController.m */,
+				3DFEA7371B0A8EEC007A591D /* MediaTableViewCell.h */,
+				3DFEA7381B0A8EEC007A591D /* MediaTableViewCell.m */,
+				3DA83D7D1B01B2AE00C181DE /* Media.h */,
+				3DA83D7E1B01B2AE00C181DE /* Media.m */,
+				3DD9222C1B210AE300D80060 /* PostToInstagramViewController.h */,
+				3DD9222D1B210AE300D80060 /* PostToInstagramViewController.m */,
+				3DD319E21B1E66AC009F4F9B /* UIImage+ImageUtilities.h */,
+				3DD319E31B1E66AC009F4F9B /* UIImage+ImageUtilities.m */,
+				3DA83D7A1B01AFC600C181DE /* User.h */,
+				3DA83D7B1B01AFC600C181DE /* User.m */,
+				3DED8E381B3205EF00175C35 /* images.xcassets.imageset */,
+				3DA83D621B0199D200C181DE /* Images */,
 				3DA83D481B0196A300C181DE /* LaunchScreen.xib */,
 				3DA83D391B0196A300C181DE /* Supporting Files */,
 			);
@@ -119,6 +324,82 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3DA83D621B0199D200C181DE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3DED8E221B3203BD00175C35 /* 1.jpg */,
+				3DED8E281B3203F800175C35 /* 2.jpg */,
+				3DDD833E1B38CFD9003BAD00 /* image 27pt.png */,
+				3DED8E301B32040A00175C35 /* 3.jpg */,
+				3DED8E2C1B32040000175C35 /* 4.jpg */,
+				3DED8E341B32041A00175C35 /* 5.jpg */,
+				3DED8E321B32040E00175C35 /* 6.jpg */,
+				3DED8E2E1B32040500175C35 /* 7.jpg */,
+				3DED8E2A1B3203FC00175C35 /* 8.jpg */,
+				3DED8E261B3203F100175C35 /* 9.jpg */,
+				3DED8E241B3203EA00175C35 /* 10.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		3DED8E9A1B34BD8400175C35 /* Blocstagram WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3DED8EC11B34CDD900175C35 /* Blocstagram WatchKit Extension.entitlements */,
+				3DED8E9E1B34BD8400175C35 /* InterfaceController.h */,
+				3DED8E9F1B34BD8400175C35 /* InterfaceController.m */,
+				3DDD83401B3B196A003BAD00 /* NotificationController.h */,
+				3DDD83411B3B196A003BAD00 /* NotificationController.m */,
+				3DED8EA41B34BD8400175C35 /* GlanceController.h */,
+				3DED8EA51B34BD8400175C35 /* GlanceController.m */,
+				3DED8EA71B34BD8400175C35 /* Images.xcassets */,
+				3DED8E9B1B34BD8400175C35 /* Supporting Files */,
+			);
+			path = "Blocstagram WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		3DED8E9B1B34BD8400175C35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD832F1B37CCFC003BAD00 /* Instagram.h */,
+				3DDD83301B37CCFC003BAD00 /* Instagram.m */,
+				3DED8E9C1B34BD8400175C35 /* Info.plist */,
+				3DED8E9D1B34BD8400175C35 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DED8EAF1B34BD8500175C35 /* Blocstagram WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				3DED8EB21B34BD8500175C35 /* Interface.storyboard */,
+				3DED8EB51B34BD8500175C35 /* Images.xcassets */,
+				3DED8EB01B34BD8500175C35 /* Supporting Files */,
+			);
+			path = "Blocstagram WatchKit App";
+			sourceTree = "<group>";
+		};
+		3DED8EB01B34BD8500175C35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DED8EB11B34BD8500175C35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD4B548BD08FD9B31C17E641 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD833C1B38BE98003BAD00 /* CoreTelephony.framework */,
+				3DDD833A1B38BE8D003BAD00 /* SystemConfiguration.framework */,
+				3DDD83381B38BE6F003BAD00 /* MobileCoreServices.framework */,
+				3DDD83361B38BE55003BAD00 /* CoreLocation.framework */,
+				3DDD82D71B352FEC003BAD00 /* WatchKit.framework */,
+				698770E00DFA8E8C1E041647 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,13 +407,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DA83D591B0196A400C181DE /* Build configuration list for PBXNativeTarget "Blocstagram" */;
 			buildPhases = (
+				A4329ADA9F97972D665CD46B /* Check Pods Manifest.lock */,
 				3DA83D321B0196A300C181DE /* Sources */,
 				3DA83D331B0196A300C181DE /* Frameworks */,
 				3DA83D341B0196A300C181DE /* Resources */,
+				95D5D5E9BD99277706909C5D /* Copy Pods Resources */,
+				3DED8EC01B34BD8500175C35 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3DED8EB81B34BD8500175C35 /* PBXTargetDependency */,
 			);
 			name = Blocstagram;
 			productName = Blocstagram;
@@ -157,6 +442,39 @@
 			productReference = 3DA83D4F1B0196A400C181DE /* BlocstagramTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3DED8E981B34BD8300175C35 /* Blocstagram WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DED8EBD1B34BD8500175C35 /* Build configuration list for PBXNativeTarget "Blocstagram WatchKit Extension" */;
+			buildPhases = (
+				3DED8E951B34BD8300175C35 /* Sources */,
+				3DED8E961B34BD8300175C35 /* Frameworks */,
+				3DED8E971B34BD8300175C35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DED8EAE1B34BD8500175C35 /* PBXTargetDependency */,
+			);
+			name = "Blocstagram WatchKit Extension";
+			productName = "Blocstagram WatchKit Extension";
+			productReference = 3DED8E991B34BD8300175C35 /* Blocstagram WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		3DED8EAA1B34BD8500175C35 /* Blocstagram WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DED8EBA1B34BD8500175C35 /* Build configuration list for PBXNativeTarget "Blocstagram WatchKit App" */;
+			buildPhases = (
+				3DED8EA91B34BD8500175C35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Blocstagram WatchKit App";
+			productName = "Blocstagram WatchKit App";
+			productReference = 3DED8EAB1B34BD8500175C35 /* Blocstagram WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,10 +486,28 @@
 				TargetAttributes = {
 					3DA83D351B0196A300C181DE = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = LK662Y5U4K;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3DA83D4E1B0196A400C181DE = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 3DA83D351B0196A300C181DE;
+					};
+					3DED8E981B34BD8300175C35 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = LK662Y5U4K;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					3DED8EAA1B34BD8500175C35 = {
+						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
 			};
@@ -190,6 +526,8 @@
 			targets = (
 				3DA83D351B0196A300C181DE /* Blocstagram */,
 				3DA83D4E1B0196A400C181DE /* BlocstagramTests */,
+				3DED8E981B34BD8300175C35 /* Blocstagram WatchKit Extension */,
+				3DED8EAA1B34BD8500175C35 /* Blocstagram WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -199,9 +537,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA83D451B0196A300C181DE /* Main.storyboard in Resources */,
+				3DED8E2D1B32040000175C35 /* 4.jpg in Resources */,
+				3DED8E391B3205EF00175C35 /* images.xcassets.imageset in Resources */,
+				3DED8E291B3203F800175C35 /* 2.jpg in Resources */,
+				3DED8E311B32040A00175C35 /* 3.jpg in Resources */,
+				3DED8E331B32040E00175C35 /* 6.jpg in Resources */,
+				3DED8E251B3203EA00175C35 /* 10.jpg in Resources */,
+				3DED8E2F1B32040500175C35 /* 7.jpg in Resources */,
+				3DED8E351B32041A00175C35 /* 5.jpg in Resources */,
+				3DDD833F1B38CFD9003BAD00 /* image 27pt.png in Resources */,
+				3DED8E231B3203BD00175C35 /* 1.jpg in Resources */,
+				3DED8E2B1B3203FC00175C35 /* 8.jpg in Resources */,
 				3DA83D4A1B0196A300C181DE /* LaunchScreen.xib in Resources */,
-				3DA83D471B0196A300C181DE /* Images.xcassets in Resources */,
+				3DED8E271B3203F100175C35 /* 9.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,15 +560,83 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DED8E971B34BD8300175C35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DED8EAC1B34BD8500175C35 /* Blocstagram WatchKit App.app in Resources */,
+				3DED8EA81B34BD8400175C35 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DED8EA91B34BD8500175C35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DED8EB41B34BD8500175C35 /* Interface.storyboard in Resources */,
+				3DED8EB61B34BD8500175C35 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95D5D5E9BD99277706909C5D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4329ADA9F97972D665CD46B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3DA83D321B0196A300C181DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA83D421B0196A300C181DE /* ViewController.m in Sources */,
+				3DD319E11B1E659B009F4F9B /* CameraViewController.m in Sources */,
+				3DE8B1471B127B9300A46A01 /* MediaFullScreenViewController.m in Sources */,
+				3DD567621B1C439F00D08CB0 /* CircleSpinnerView.m in Sources */,
+				3DA83D7C1B01AFC600C181DE /* User.m in Sources */,
+				3DD8F2931B1FB23500E6BEEF /* CropBox.m in Sources */,
+				3DA83D821B01B36B00C181DE /* Comment.m in Sources */,
+				3DD8F2961B1FB97700E6BEEF /* CropImageViewController.m in Sources */,
+				3DFEA7391B0A8EEC007A591D /* MediaTableViewCell.m in Sources */,
+				3DA83D7F1B01B2AE00C181DE /* Media.m in Sources */,
+				3DD319DE1B1E64E0009F4F9B /* CameraToolbar.m in Sources */,
+				3DD8F2991B1FC68000E6BEEF /* ImageLibraryCollectionViewController.m in Sources */,
+				3DA83D791B019A5500C181DE /* ImagesTableTableViewController.m in Sources */,
+				3DD9222E1B210AE300D80060 /* PostToInstagramViewController.m in Sources */,
+				3DFEA73C1B0ADC07007A591D /* LoginViewController.m in Sources */,
+				3DD567651B1C445F00D08CB0 /* LikeButton.m in Sources */,
+				3DA83D851B01B3E500C181DE /* DataSource.m in Sources */,
+				3DCEB8591B1D2F8100BA4064 /* ComposeCommentView.m in Sources */,
 				3DA83D3F1B0196A300C181DE /* AppDelegate.m in Sources */,
+				3DD319E41B1E66AC009F4F9B /* UIImage+ImageUtilities.m in Sources */,
 				3DA83D3C1B0196A300C181DE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +649,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DED8E951B34BD8300175C35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DDD83311B37CCFC003BAD00 /* Instagram.m in Sources */,
+				3DED8EA01B34BD8400175C35 /* InterfaceController.m in Sources */,
+				3DDD83421B3B196A003BAD00 /* NotificationController.m in Sources */,
+				3DED8EA61B34BD8400175C35 /* GlanceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -241,23 +668,33 @@
 			target = 3DA83D351B0196A300C181DE /* Blocstagram */;
 			targetProxy = 3DA83D501B0196A400C181DE /* PBXContainerItemProxy */;
 		};
+		3DED8EAE1B34BD8500175C35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DED8EAA1B34BD8500175C35 /* Blocstagram WatchKit App */;
+			targetProxy = 3DED8EAD1B34BD8500175C35 /* PBXContainerItemProxy */;
+		};
+		3DED8EB81B34BD8500175C35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DED8E981B34BD8300175C35 /* Blocstagram WatchKit Extension */;
+			targetProxy = 3DED8EB71B34BD8500175C35 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3DA83D431B0196A300C181DE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DA83D441B0196A300C181DE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3DA83D481B0196A300C181DE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3DA83D491B0196A300C181DE /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		3DED8EB21B34BD8500175C35 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DED8EB31B34BD8500175C35 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -343,21 +780,35 @@
 		};
 		3DA83D5A1B0196A400C181DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4F77F792CD312F917C77F36 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Blocstagram/Blocstagram.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cynthia  Whitlatch (QVA2L7PW2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blocstagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "764a558e-2237-4564-9116-5885df30e446";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3DA83D5B1B0196A400C181DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8481656597BD1DD50C6669C1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Blocstagram/Blocstagram.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cynthia  Whitlatch (QVA2L7PW2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blocstagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "764a558e-2237-4564-9116-5885df30e446";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -395,6 +846,80 @@
 			};
 			name = Release;
 		};
+		3DED8EBB1B34BD8500175C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Blocstagram_WatchKit_Extension;
+				INFOPLIST_FILE = "Blocstagram WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		3DED8EBC1B34BD8500175C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = Blocstagram_WatchKit_Extension;
+				INFOPLIST_FILE = "Blocstagram WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		3DED8EBE1B34BD8500175C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Blocstagram WatchKit Extension/Blocstagram WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Blocstagram WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3DED8EBF1B34BD8500175C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Blocstagram WatchKit Extension/Blocstagram WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Blocstagram WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -414,6 +939,7 @@
 				3DA83D5B1B0196A400C181DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA83D5C1B0196A400C181DE /* Build configuration list for PBXNativeTarget "BlocstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +948,25 @@
 				3DA83D5E1B0196A400C181DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DED8EBA1B34BD8500175C35 /* Build configuration list for PBXNativeTarget "Blocstagram WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DED8EBB1B34BD8500175C35 /* Debug */,
+				3DED8EBC1B34BD8500175C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DED8EBD1B34BD8500175C35 /* Build configuration list for PBXNativeTarget "Blocstagram WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DED8EBE1B34BD8500175C35 /* Debug */,
+				3DED8EBF1B34BD8500175C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
